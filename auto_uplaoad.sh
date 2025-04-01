@@ -1,15 +1,8 @@
 #!/bin/bash
 
-# Menambahkan repository ke daftar safe directory
-# git config --global --add safe.directory "D:/laragon/www/malw"
-# Atur konfigurasi Git sesuai dengan config.json
-git config --global user.name "$USERNAME"
-git config --global user.email "$EMAIL"
-git config --global --add safe.directory "$(pwd)"
-
-
 # File konfigurasi
 CONFIG_FILE="config.json"
+
 
 # Periksa apakah file config.json ada
 if [ ! -f "$CONFIG_FILE" ]; then
@@ -19,9 +12,22 @@ fi
 
 # Mengambil konfigurasi menggunakan jq
 USERNAME=$(jq -r '.username' "$CONFIG_FILE")
+EMAIL=$(jq -r '.email' "$CONFIG_FILE")
 TOKEN=$(jq -r '.token' "$CONFIG_FILE")
 REMOTE=$(jq -r '.remote' "$CONFIG_FILE")
 BRANCH=$(jq -r '.branch' "$CONFIG_FILE")
+
+# Pastikan nilai dari config.json tidak kosong
+if [ -z "$USERNAME" ] || [ -z "$EMAIL" ] || [ -z "$REMOTE" ] || [ -z "$BRANCH" ]; then
+  echo "Error: Konfigurasi di config.json tidak lengkap!"
+  exit 1
+fi
+
+
+# Atur konfigurasi Git sesuai dengan config.json
+git config --global user.name "$USERNAME"
+git config --global user.email "$EMAIL"
+git config --global --add safe.directory "$(pwd)"
 
 # Membuat URL remote dengan menyisipkan kredensial (hanya untuk HTTPS)
 GIT_REMOTE_URL=$(echo "$REMOTE" | sed "s|https://|https://${USERNAME}:${TOKEN}@|")
