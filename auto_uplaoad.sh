@@ -1,7 +1,12 @@
 #!/bin/bash
 
 # Menambahkan repository ke daftar safe directory
-git config --global --add safe.directory "D:/laragon/www/malw"
+# git config --global --add safe.directory "D:/laragon/www/malw"
+# Atur konfigurasi Git sesuai dengan config.json
+git config --global user.name "$USERNAME"
+git config --global user.email "$EMAIL"
+git config --global --add safe.directory "$(pwd)"
+
 
 # File konfigurasi
 CONFIG_FILE="config.json"
