@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Shield, Clock, BarChart, Settings, AlertCircle, CheckCircle, FileText, ArrowUpRight, Table, Server, FileCheck } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -137,230 +138,245 @@ const Dashboard = () => {
             </div>
           ) : (
             <>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 animate-fade-in-up">
-                <DashboardStat 
-                  title="Security Score" 
-                  value={`${stats.securityScore}%`} 
-                  description="Skor keamanan website Anda" 
-                  icon={<Shield className="text-purple-600" />}
-                  trend="up"
-                  trendValue="+12%"
-                />
-                <DashboardStat 
-                  title="Threats Blocked" 
-                  value={stats.threatsBlocked} 
-                  description="Ancaman yang telah diblokir" 
-                  icon={<AlertCircle className="text-purple-600" />}
-                  trend="up"
-                  trendValue="+3"
-                />
-                <DashboardStat 
-                  title="Issues Resolved" 
-                  value={stats.issuesResolved} 
-                  description="Masalah yang telah diperbaiki" 
-                  icon={<CheckCircle className="text-purple-600" />}
-                  trend="up"
-                  trendValue="+2"
-                />
-                <DashboardStat 
-                  title="Days Protected" 
-                  value={stats.daysProtected} 
-                  description="Durasi perlindungan aktif" 
-                  icon={<Clock className="text-purple-600" />}
-                  trend="up"
-                  trendValue="+15"
-                />
-              </div>
-
-              <Card className="w-full mb-10 animate-fade-in-up elegant-card">
-                <CardHeader>
-                  <CardTitle className="flex justify-between items-center">
-                    <span>Layanan Aktif</span>
-                    <Table className="h-5 w-5 text-purple-600" />
-                  </CardTitle>
-                  <CardDescription>
-                    Rincian layanan yang Anda gunakan saat ini
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ServiceSummaryTable items={serviceItems} total={totalAmount} />
-                </CardContent>
-                <CardFooter className="flex justify-end">
-                  <Button variant="outline" size="sm" className="mr-2">
-                    <FileCheck className="mr-2 h-4 w-4" /> Lihat Invoice
-                  </Button>
-                  <Button size="sm" className="bg-purple-600 hover:bg-purple-700">
-                    <Server className="mr-2 h-4 w-4" /> Kelola Layanan
-                  </Button>
-                </CardFooter>
-              </Card>
-
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-                <Card className="col-span-1 animate-fade-in-up elegant-card" style={{ animationDelay: '0.1s' }}>
+              {/* Billing Section */}
+              <div className="mb-12">
+                <h2 className="text-2xl font-bold mb-6 flex items-center">
+                  <Table className="h-5 w-5 mr-2 text-purple-600" />
+                  Layanan Aktif & Tagihan
+                </h2>
+                <Card className="w-full elegant-card">
                   <CardHeader>
                     <CardTitle className="flex justify-between items-center">
-                      <span>Website Security Score</span>
-                      <Shield className="h-5 w-5 text-purple-600" />
+                      <span>Layanan Aktif</span>
                     </CardTitle>
                     <CardDescription>
-                      Penilaian keamanan website Anda
+                      Rincian layanan yang Anda gunakan saat ini
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <WebsiteSecurityScore score={stats.securityScore} />
-                    <div className="mt-6">
-                      <h4 className="font-medium mb-3">Breakdown by Category</h4>
-                      <div className="space-y-4">
-                        <div>
-                          <div className="flex justify-between mb-1">
-                            <span className="text-sm">Keamanan File</span>
-                            <span className="text-sm font-medium">92%</span>
+                    <ServiceSummaryTable items={serviceItems} total={totalAmount} />
+                  </CardContent>
+                  <CardFooter className="flex justify-end">
+                    <Button variant="outline" size="sm" className="mr-2">
+                      <FileCheck className="mr-2 h-4 w-4" /> Lihat Invoice
+                    </Button>
+                    <Button size="sm" className="bg-purple-600 hover:bg-purple-700">
+                      <Server className="mr-2 h-4 w-4" /> Kelola Layanan
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </div>
+
+              {/* Monitoring / Statistics Section */}
+              <div>
+                <h2 className="text-2xl font-bold mb-6 flex items-center">
+                  <BarChart className="h-5 w-5 mr-2 text-purple-600" />
+                  Monitoring & Statistik
+                </h2>
+                
+                {/* Stats dashboard based on active services */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 animate-fade-in-up">
+                  <DashboardStat 
+                    title="Security Score" 
+                    value={`${stats.securityScore}%`} 
+                    description="Skor keamanan 14 website Anda" 
+                    icon={<Shield className="text-purple-600" />}
+                    trend="up"
+                    trendValue="+12%"
+                  />
+                  <DashboardStat 
+                    title="Threats Blocked" 
+                    value={stats.threatsBlocked} 
+                    description="Ancaman malware yang telah diblokir" 
+                    icon={<AlertCircle className="text-purple-600" />}
+                    trend="up"
+                    trendValue="+3"
+                  />
+                  <DashboardStat 
+                    title="Issues Resolved" 
+                    value={stats.issuesResolved} 
+                    description="Masalah cPanel yang telah diperbaiki" 
+                    icon={<CheckCircle className="text-purple-600" />}
+                    trend="up"
+                    trendValue="+2"
+                  />
+                  <DashboardStat 
+                    title="Days Protected" 
+                    value={stats.daysProtected} 
+                    description="Durasi perlindungan server VPS aktif" 
+                    icon={<Clock className="text-purple-600" />}
+                    trend="up"
+                    trendValue="+15"
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+                  <Card className="col-span-1 animate-fade-in-up elegant-card" style={{ animationDelay: '0.1s' }}>
+                    <CardHeader>
+                      <CardTitle className="flex justify-between items-center">
+                        <span>Website Security Score</span>
+                        <Shield className="h-5 w-5 text-purple-600" />
+                      </CardTitle>
+                      <CardDescription>
+                        Penilaian keamanan 14 website Anda
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <WebsiteSecurityScore score={stats.securityScore} />
+                      <div className="mt-6">
+                        <h4 className="font-medium mb-3">Breakdown by Category</h4>
+                        <div className="space-y-4">
+                          <div>
+                            <div className="flex justify-between mb-1">
+                              <span className="text-sm">Keamanan File</span>
+                              <span className="text-sm font-medium">92%</span>
+                            </div>
+                            <Progress value={92} className="h-2" />
                           </div>
-                          <Progress value={92} className="h-2" />
-                        </div>
-                        <div>
-                          <div className="flex justify-between mb-1">
-                            <span className="text-sm">Plugin Safety</span>
-                            <span className="text-sm font-medium">78%</span>
+                          <div>
+                            <div className="flex justify-between mb-1">
+                              <span className="text-sm">Plugin Safety</span>
+                              <span className="text-sm font-medium">78%</span>
+                            </div>
+                            <Progress value={78} className="h-2" />
                           </div>
-                          <Progress value={78} className="h-2" />
-                        </div>
-                        <div>
-                          <div className="flex justify-between mb-1">
-                            <span className="text-sm">Database Security</span>
-                            <span className="text-sm font-medium">85%</span>
+                          <div>
+                            <div className="flex justify-between mb-1">
+                              <span className="text-sm">Database Security</span>
+                              <span className="text-sm font-medium">85%</span>
+                            </div>
+                            <Progress value={85} className="h-2" />
                           </div>
-                          <Progress value={85} className="h-2" />
-                        </div>
-                        <div>
-                          <div className="flex justify-between mb-1">
-                            <span className="text-sm">Login Protection</span>
-                            <span className="text-sm font-medium">96%</span>
+                          <div>
+                            <div className="flex justify-between mb-1">
+                              <span className="text-sm">Login Protection</span>
+                              <span className="text-sm font-medium">96%</span>
+                            </div>
+                            <Progress value={96} className="h-2" />
                           </div>
-                          <Progress value={96} className="h-2" />
                         </div>
                       </div>
-                    </div>
-                  </CardContent>
-                  <CardFooter>
-                    <Button variant="outline" className="w-full">
-                      <FileText className="mr-2 h-4 w-4" /> View Detailed Report
-                    </Button>
-                  </CardFooter>
-                </Card>
+                    </CardContent>
+                    <CardFooter>
+                      <Button variant="outline" className="w-full">
+                        <FileText className="mr-2 h-4 w-4" /> View Detailed Report
+                      </Button>
+                    </CardFooter>
+                  </Card>
 
-                <Card className="col-span-1 animate-fade-in-up elegant-card" style={{ animationDelay: '0.2s' }}>
-                  <CardHeader>
-                    <CardTitle className="flex justify-between items-center">
-                      <span>Security Issues</span>
-                      <AlertCircle className="h-5 w-5 text-purple-600" />
-                    </CardTitle>
-                    <CardDescription>
-                      Masalah keamanan terdeteksi
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      {securityIssues.map((issue, index) => (
-                        <div key={index} className="p-4 rounded-lg border bg-background flex items-start">
-                          <div className={`h-2 w-2 rounded-full mt-2 mr-3 ${
-                            issue.severity === 'high' 
-                              ? 'bg-red-500' 
-                              : issue.severity === 'medium' 
-                                ? 'bg-orange-500' 
-                                : 'bg-yellow-500'
-                          }`} />
-                          <div className="flex-1">
-                            <div className="flex justify-between">
-                              <h4 className="font-medium">{issue.title}</h4>
-                              <span className={`text-xs px-2 py-1 rounded-full ${
-                                issue.status === 'resolved' 
-                                  ? 'bg-green-100 text-green-800' 
-                                  : 'bg-orange-100 text-orange-800'
-                              }`}>
-                                {issue.status === 'resolved' ? 'Resolved' : 'Pending'}
-                              </span>
+                  <Card className="col-span-1 animate-fade-in-up elegant-card" style={{ animationDelay: '0.2s' }}>
+                    <CardHeader>
+                      <CardTitle className="flex justify-between items-center">
+                        <span>Security Issues</span>
+                        <AlertCircle className="h-5 w-5 text-purple-600" />
+                      </CardTitle>
+                      <CardDescription>
+                        Masalah keamanan terdeteksi
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        {securityIssues.map((issue, index) => (
+                          <div key={index} className="p-4 rounded-lg border bg-background flex items-start">
+                            <div className={`h-2 w-2 rounded-full mt-2 mr-3 ${
+                              issue.severity === 'high' 
+                                ? 'bg-red-500' 
+                                : issue.severity === 'medium' 
+                                  ? 'bg-orange-500' 
+                                  : 'bg-yellow-500'
+                            }`} />
+                            <div className="flex-1">
+                              <div className="flex justify-between">
+                                <h4 className="font-medium">{issue.title}</h4>
+                                <span className={`text-xs px-2 py-1 rounded-full ${
+                                  issue.status === 'resolved' 
+                                    ? 'bg-green-100 text-green-800' 
+                                    : 'bg-orange-100 text-orange-800'
+                                }`}>
+                                  {issue.status === 'resolved' ? 'Resolved' : 'Pending'}
+                                </span>
+                              </div>
+                              <p className="text-sm text-muted-foreground mt-1">{issue.description}</p>
                             </div>
-                            <p className="text-sm text-muted-foreground mt-1">{issue.description}</p>
                           </div>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                  <CardFooter>
-                    <Button variant="outline" className="w-full">
-                      <Settings className="mr-2 h-4 w-4" /> Fix Security Issues
-                    </Button>
-                  </CardFooter>
-                </Card>
+                        ))}
+                      </div>
+                    </CardContent>
+                    <CardFooter>
+                      <Button variant="outline" className="w-full">
+                        <Settings className="mr-2 h-4 w-4" /> Fix Security Issues
+                      </Button>
+                    </CardFooter>
+                  </Card>
 
-                <Card className="col-span-1 animate-fade-in-up elegant-card" style={{ animationDelay: '0.3s' }}>
+                  <Card className="col-span-1 animate-fade-in-up elegant-card" style={{ animationDelay: '0.3s' }}>
+                    <CardHeader>
+                      <CardTitle className="flex justify-between items-center">
+                        <span>Recent Scans</span>
+                        <Clock className="h-5 w-5 text-purple-600" />
+                      </CardTitle>
+                      <CardDescription>
+                        Riwayat pemindaian website terbaru
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        {recentScans.map((scan, index) => (
+                          <MalwareScanStatus 
+                            key={index} 
+                            date={scan.date} 
+                            status={scan.status} 
+                            threats={scan.threats} 
+                            duration={scan.duration} 
+                          />
+                        ))}
+                      </div>
+                    </CardContent>
+                    <CardFooter>
+                      <Button variant="outline" className="w-full">
+                        View All Scan History
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                </div>
+
+                <Card className="w-full mb-12 animate-fade-in-up elegant-card" style={{ animationDelay: '0.4s' }}>
                   <CardHeader>
                     <CardTitle className="flex justify-between items-center">
-                      <span>Recent Scans</span>
-                      <Clock className="h-5 w-5 text-purple-600" />
+                      <span>Security Analytics</span>
+                      <BarChart className="h-5 w-5 text-purple-600" />
                     </CardTitle>
                     <CardDescription>
-                      Riwayat pemindaian terbaru
+                      Analisis aktivitas keamanan 30 hari terakhir
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <div className="space-y-4">
-                      {recentScans.map((scan, index) => (
-                        <MalwareScanStatus 
-                          key={index} 
-                          date={scan.date} 
-                          status={scan.status} 
-                          threats={scan.threats} 
-                          duration={scan.duration} 
-                        />
-                      ))}
+                    <div className="h-[300px]">
+                      <DashboardChart />
                     </div>
                   </CardContent>
-                  <CardFooter>
-                    <Button variant="outline" className="w-full">
-                      View All Scan History
-                    </Button>
-                  </CardFooter>
                 </Card>
-              </div>
 
-              <Card className="w-full mb-12 animate-fade-in-up elegant-card" style={{ animationDelay: '0.4s' }}>
-                <CardHeader>
-                  <CardTitle className="flex justify-between items-center">
-                    <span>Security Analytics</span>
-                    <BarChart className="h-5 w-5 text-purple-600" />
-                  </CardTitle>
-                  <CardDescription>
-                    Analisis aktivitas keamanan 30 hari terakhir
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="h-[300px]">
-                    <DashboardChart />
-                  </div>
-                </CardContent>
-              </Card>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
-                <Button className="h-auto py-6 bg-purple-600 hover:bg-purple-700">
-                  <div className="flex flex-col items-center">
-                    <Shield className="h-6 w-6 mb-2" />
-                    <span className="text-base font-medium">Run Full Security Scan</span>
-                  </div>
-                </Button>
-                <Button variant="outline" className="h-auto py-6">
-                  <div className="flex flex-col items-center">
-                    <FileText className="h-6 w-6 mb-2" />
-                    <span className="text-base font-medium">Download Security Report</span>
-                  </div>
-                </Button>
-                <Button variant="outline" className="h-auto py-6">
-                  <div className="flex flex-col items-center">
-                    <Settings className="h-6 w-6 mb-2" />
-                    <span className="text-base font-medium">Configure Security Settings</span>
-                  </div>
-                </Button>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+                  <Button className="h-auto py-6 bg-purple-600 hover:bg-purple-700">
+                    <div className="flex flex-col items-center">
+                      <Shield className="h-6 w-6 mb-2" />
+                      <span className="text-base font-medium">Run Full Security Scan</span>
+                    </div>
+                  </Button>
+                  <Button variant="outline" className="h-auto py-6">
+                    <div className="flex flex-col items-center">
+                      <FileText className="h-6 w-6 mb-2" />
+                      <span className="text-base font-medium">Download Security Report</span>
+                    </div>
+                  </Button>
+                  <Button variant="outline" className="h-auto py-6">
+                    <div className="flex flex-col items-center">
+                      <Settings className="h-6 w-6 mb-2" />
+                      <span className="text-base font-medium">Configure Security Settings</span>
+                    </div>
+                  </Button>
+                </div>
               </div>
             </>
           )}
