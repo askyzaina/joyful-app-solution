@@ -2,12 +2,14 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { Session, User } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
-import { Tables } from '@/integrations/supabase/types';
+import { Database } from '@/integrations/supabase/types';
+
+type ProfileType = Database['public']['Tables']['profiles']['Row'];
 
 type AuthContextType = {
   session: Session | null;
   user: User | null;
-  profile: Tables<'profiles'> | null;
+  profile: ProfileType | null;
   isLoading: boolean;
   signOut: () => Promise<void>;
 };
@@ -17,7 +19,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
   const [user, setUser] = useState<User | null>(null);
-  const [profile, setProfile] = useState<Tables<'profiles'> | null>(null);
+  const [profile, setProfile] = useState<ProfileType | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -68,7 +70,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         throw error;
       }
       
-      setProfile(data as Tables<'profiles'>);
+      setProfile(data);
     } catch (error) {
       console.error('Error fetching user profile:', error);
       // Don't set profile to null here, in case it's just a temporary error
