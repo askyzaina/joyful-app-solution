@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Shield, Clock, BarChart, Settings, AlertCircle, CheckCircle, FileText, ArrowUpRight, Table, Server, FileCheck } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -10,6 +9,8 @@ import WebsiteSecurityScore from '@/components/WebsiteSecurityScore';
 import MalwareScanStatus from '@/components/MalwareScanStatus';
 import ServiceSummaryTable, { ServiceItem } from '@/components/ServiceSummaryTable';
 import { useAuth } from '@/context/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import { toast } from '@/hooks/use-toast';
 
 type ScanStatus = 'clean' | 'threats-found' | 'in-progress';
 
@@ -24,6 +25,8 @@ const Dashboard = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [loading, setLoading] = useState(true);
   const { profile } = useAuth();
+  const navigate = useNavigate();
+  
   const [stats, setStats] = useState({
     securityScore: 87,
     threatsBlocked: 142,
@@ -64,6 +67,22 @@ const Dashboard = () => {
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
+
+  const handleManageServices = () => {
+    navigate('/admin/services');
+    toast({
+      title: "Navigating to Service Management",
+      description: "Taking you to manage your active services",
+    });
+  };
+
+  const handleViewInvoice = () => {
+    navigate('/admin/purchases');
+    toast({
+      title: "Viewing Invoices",
+      description: "Taking you to your invoice list",
+    });
+  };
 
   const securityIssues = [
     {
@@ -157,10 +176,19 @@ const Dashboard = () => {
                     <ServiceSummaryTable items={serviceItems} total={totalAmount} />
                   </CardContent>
                   <CardFooter className="flex justify-end">
-                    <Button variant="outline" size="sm" className="mr-2">
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="mr-2"
+                      onClick={handleViewInvoice}
+                    >
                       <FileCheck className="mr-2 h-4 w-4" /> Lihat Invoice
                     </Button>
-                    <Button size="sm" className="bg-purple-600 hover:bg-purple-700">
+                    <Button 
+                      size="sm" 
+                      className="bg-purple-600 hover:bg-purple-700"
+                      onClick={handleManageServices}
+                    >
                       <Server className="mr-2 h-4 w-4" /> Kelola Layanan
                     </Button>
                   </CardFooter>

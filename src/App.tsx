@@ -19,6 +19,7 @@ import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import { AuthProvider, useAuth } from './context/AuthContext';
+import AdminServices from './pages/AdminServices';
 
 const queryClient = new QueryClient();
 
@@ -73,6 +74,14 @@ function AppRoutes() {
             element={
               <ProtectedRoute>
                 <Dashboard />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/admin/services" 
+            element={
+              <ProtectedRoute>
+                <AdminServices />
               </ProtectedRoute>
             } 
           />
