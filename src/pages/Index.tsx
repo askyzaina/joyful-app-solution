@@ -140,7 +140,7 @@ const Index = () => {
         
         <div className="section-container">
           <div className="text-center mb-16">
-            <div className="inline-block px-3 py-1 rounded-full bg-[#00d2ff]/10 text-[#00d2ff] text-sm font-mono mb-4">
+            <div className="inline-block px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 text-sm font-mono mb-4">
               THREAT INTELLIGENCE
             </div>
             <h2 className="section-title text-white">Kenapa Malware Berbahaya?</h2>
@@ -151,8 +151,8 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="cyber-card animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-              <div className="h-12 w-12 rounded-full bg-[#00d2ff]/10 flex items-center justify-center mb-6">
-                <Database className="h-6 w-6 text-[#00d2ff]" />
+              <div className="h-12 w-12 rounded-full bg-indigo-500/10 flex items-center justify-center mb-6">
+                <Database className="h-6 w-6 text-indigo-500" />
               </div>
               <h3 className="text-xl font-bold mb-3 text-white">Kehilangan Data</h3>
               <p className="text-gray-400 font-mono text-sm">
@@ -161,8 +161,8 @@ const Index = () => {
             </div>
             
             <div className="cyber-card animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-              <div className="h-12 w-12 rounded-full bg-[#00d2ff]/10 flex items-center justify-center mb-6">
-                <UserCheck className="h-6 w-6 text-[#00d2ff]" />
+              <div className="h-12 w-12 rounded-full bg-indigo-500/10 flex items-center justify-center mb-6">
+                <UserCheck className="h-6 w-6 text-indigo-500" />
               </div>
               <h3 className="text-xl font-bold mb-3 text-white">Kerusakan Reputasi</h3>
               <p className="text-gray-400 font-mono text-sm">
@@ -171,8 +171,8 @@ const Index = () => {
             </div>
             
             <div className="cyber-card animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-              <div className="h-12 w-12 rounded-full bg-[#00d2ff]/10 flex items-center justify-center mb-6">
-                <ServerCrash className="h-6 w-6 text-[#00d2ff]" />
+              <div className="h-12 w-12 rounded-full bg-indigo-500/10 flex items-center justify-center mb-6">
+                <ServerCrash className="h-6 w-6 text-indigo-500" />
               </div>
               <h3 className="text-xl font-bold mb-3 text-white">Penurunan Performa</h3>
               <p className="text-gray-400 font-mono text-sm">
@@ -184,7 +184,7 @@ const Index = () => {
           {/* Security Alert Box */}
           <div className="security-alert mt-16 max-w-3xl mx-auto">
             <div className="flex items-start gap-4">
-              <AlertTriangle className="h-6 w-6 text-[#00d2ff] mt-1 flex-shrink-0" />
+              <AlertTriangle className="h-6 w-6 text-indigo-500 mt-1 flex-shrink-0" />
               <div>
                 <h4 className="font-bold text-white mb-1">Fakta Keamanan</h4>
                 <p className="text-sm">37% dari semua website yang terinfeksi malware tidak menyadari adanya infeksi sampai terlambat. Pemeriksaan keamanan secara berkala sangat penting untuk mencegah serangan yang lebih parah.</p>
@@ -194,14 +194,20 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Services Section */}
-      <section className="py-16 md:py-24 bg-black relative overflow-hidden" id="layanan">
-        {/* Hex grid background */}
-        <div className="absolute inset-0 hex-grid"></div>
+      {/* Services Section - Updated with better background */}
+      <section className="py-16 md:py-24 wavy-background relative overflow-hidden" id="layanan">
+        {/* Decorative elements */}
+        <div className="absolute left-0 top-0 w-1/2 h-full bg-gradient-to-br from-indigo-900/5 to-transparent"></div>
+        <div className="absolute right-0 bottom-0 w-1/2 h-full bg-gradient-to-tl from-indigo-900/5 to-transparent"></div>
+        
+        {/* Animated particles */}
+        <div className="absolute top-1/4 left-1/4 w-2 h-2 rounded-full bg-indigo-500/30 animate-pulse"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-2 h-2 rounded-full bg-indigo-500/30 animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-2/3 right-1/3 w-2 h-2 rounded-full bg-indigo-500/30 animate-pulse" style={{ animationDelay: '2s' }}></div>
         
         <div className="section-container relative z-10">
           <div className="text-center mb-16">
-            <div className="inline-block px-3 py-1 rounded-full bg-[#00d2ff]/10 text-[#00d2ff] text-sm font-mono mb-4">
+            <div className="inline-block px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 text-sm font-mono mb-4">
               SOLUSI KAMI
             </div>
             <h2 className="section-title text-white">Pilih Paket Layanan Kami</h2>
@@ -217,7 +223,7 @@ const Index = () => {
               price="Rp 150.000"
               description="Pembersihan malware dasar untuk website WordPress dengan infeksi ringan."
               features={basicFeatures}
-              className="animate-fade-in-up border border-[#00d2ff]/20 bg-gradient-to-br from-[#0a192f] to-black"
+              className="animate-fade-in-up border border-indigo-500/20 bg-gradient-to-br from-[#0a192f] to-black"
               style={{ animationDelay: '0.1s' }}
               onSelect={() => handleServiceSelect('basic')}
             />
@@ -229,7 +235,7 @@ const Index = () => {
               description="Pembersihan malware menyeluruh dengan pengamanan dan optimasi."
               features={advancedFeatures}
               popular={true}
-              className="animate-fade-in-up border border-[#00d2ff]/30 bg-gradient-to-br from-[#0a192f] to-black"
+              className="animate-fade-in-up border border-indigo-500/30 bg-gradient-to-br from-[#0a192f] to-black"
               style={{ animationDelay: '0.2s' }}
               onSelect={() => handleServiceSelect('advanced')}
             />
@@ -240,7 +246,7 @@ const Index = () => {
               price="Rp 750.000"
               description="Solusi keamanan komprehensif untuk website dengan infeksi berat atau e-commerce."
               features={premiumFeatures}
-              className="animate-fade-in-up border border-[#00d2ff]/20 bg-gradient-to-br from-[#0a192f] to-black"
+              className="animate-fade-in-up border border-indigo-500/20 bg-gradient-to-br from-[#0a192f] to-black"
               style={{ animationDelay: '0.3s' }}
               onSelect={() => handleServiceSelect('premium')}
             />
@@ -255,7 +261,7 @@ const Index = () => {
         
         <div className="section-container relative z-10">
           <div className="text-center mb-16">
-            <div className="inline-block px-3 py-1 rounded-full bg-[#00d2ff]/10 text-[#00d2ff] text-sm font-mono mb-4">
+            <div className="inline-block px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 text-sm font-mono mb-4">
               METODOLOGI
             </div>
             <h2 className="section-title text-white">Proses Pembersihan Malware</h2>
@@ -269,41 +275,41 @@ const Index = () => {
               number={1}
               title="Diagnosa Awal"
               description="Melakukan backup data dan analisis mendalam untuk mengidentifikasi jenis malware dan titik infeksi."
-              icon={<File className="h-6 w-6 text-[#00d2ff]" />}
+              icon={<File className="h-6 w-6 text-indigo-500" />}
               style={{ animationDelay: '0.1s' }}
-              className="border border-[#00d2ff]/20 bg-gradient-to-br from-[#0a192f] to-black"
+              className="border border-indigo-500/20 bg-gradient-to-br from-[#0a192f] to-black"
             />
             
             <ProcessStep
               number={2}
               title="Pembersihan"
               description="Menghapus semua malware dan file berbahaya dari website secara menyeluruh."
-              icon={<Shield className="h-6 w-6 text-[#00d2ff]" />}
+              icon={<Shield className="h-6 w-6 text-indigo-500" />}
               style={{ animationDelay: '0.2s' }}
-              className="border border-[#00d2ff]/20 bg-gradient-to-br from-[#0a192f] to-black"
+              className="border border-indigo-500/20 bg-gradient-to-br from-[#0a192f] to-black"
             />
             
             <ProcessStep
               number={3}
               title="Pengamanan"
               description="Meningkatkan keamanan website dengan security hardening dan update sistem."
-              icon={<Lock className="h-6 w-6 text-[#00d2ff]" />}
+              icon={<Lock className="h-6 w-6 text-indigo-500" />}
               style={{ animationDelay: '0.3s' }}
-              className="border border-[#00d2ff]/20 bg-gradient-to-br from-[#0a192f] to-black"
+              className="border border-indigo-500/20 bg-gradient-to-br from-[#0a192f] to-black"
             />
             
             <ProcessStep
               number={4}
               title="Pelaporan"
               description="Memberikan laporan lengkap dan rekomendasi untuk mencegah serangan di masa depan."
-              icon={<BadgeCheck className="h-6 w-6 text-[#00d2ff]" />}
+              icon={<BadgeCheck className="h-6 w-6 text-indigo-500" />}
               style={{ animationDelay: '0.4s' }}
-              className="border border-[#00d2ff]/20 bg-gradient-to-br from-[#0a192f] to-black"
+              className="border border-indigo-500/20 bg-gradient-to-br from-[#0a192f] to-black"
             />
           </div>
           
           {/* Terminal Display */}
-          <div className="mt-16 max-w-3xl mx-auto border border-[#00d2ff]/20 rounded-md overflow-hidden">
+          <div className="mt-16 max-w-3xl mx-auto border border-indigo-500/20 rounded-md overflow-hidden">
             <div className="terminal-header">
               <div className="terminal-circle bg-red-500/80"></div>
               <div className="terminal-circle bg-yellow-500/80"></div>
@@ -347,14 +353,11 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Testimonials Section */}
-      <section className="py-16 md:py-24 bg-black relative overflow-hidden">
-        {/* Hex grid background */}
-        <div className="absolute inset-0 hex-grid"></div>
-        
+      {/* Testimonials Section - Updated with better background and card styles */}
+      <section className="py-16 md:py-24 testimonial-background relative overflow-hidden">
         <div className="section-container relative z-10">
           <div className="text-center mb-16">
-            <div className="inline-block px-3 py-1 rounded-full bg-[#00d2ff]/10 text-[#00d2ff] text-sm font-mono mb-4">
+            <div className="inline-block px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 text-sm font-mono mb-4">
               TESTIMONI
             </div>
             <h2 className="section-title text-white">Klien Kami Berkata</h2>
@@ -373,17 +376,37 @@ const Index = () => {
             <CarouselContent className="-ml-4">
               {testimonials.map((testimonial, index) => (
                 <CarouselItem key={index} className="pl-4 sm:basis-1/2 md:basis-1/3 lg:basis-1/3">
-                  <TestimonialCard
-                    {...testimonial}
-                    style={{ animationDelay: `${0.1 * (index % 3 + 1)}s` }}
-                    className="border border-[#00d2ff]/20 bg-gradient-to-br from-[#0a192f] to-black"
-                  />
+                  <div className="testimonial-card h-full flex flex-col">
+                    {/* Star rating */}
+                    <div className="flex items-center mb-4">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <Star
+                          key={i}
+                          className={i < testimonial.rating ? "h-5 w-5 mr-1 text-indigo-500 fill-indigo-500" : "h-5 w-5 mr-1 text-gray-300"}
+                        />
+                      ))}
+                    </div>
+                    
+                    {/* Content with improved spacing */}
+                    <p className="mb-6 text-gray-300 flex-grow">{testimonial.content}</p>
+                    
+                    {/* Author info */}
+                    <div className="flex items-center mt-auto pt-4 border-t border-indigo-500/10">
+                      <div className="w-10 h-10 bg-indigo-500/20 rounded-full flex items-center justify-center text-white font-bold mr-3">
+                        {testimonial.name.charAt(0)}
+                      </div>
+                      <div>
+                        <p className="font-semibold text-white">{testimonial.name}</p>
+                        <p className="text-sm text-indigo-400/80">{testimonial.role}</p>
+                      </div>
+                    </div>
+                  </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
             <div className="flex justify-center mt-8 gap-4">
-              <CarouselPrevious className="relative static transform-none bg-black/80 border border-[#00d2ff]/30 hover:bg-[#00d2ff]/20 hover:text-white text-[#00d2ff]" />
-              <CarouselNext className="relative static transform-none bg-black/80 border border-[#00d2ff]/30 hover:bg-[#00d2ff]/20 hover:text-white text-[#00d2ff]" />
+              <CarouselPrevious className="relative static transform-none bg-black/80 border border-indigo-500/30 hover:bg-indigo-500/20 hover:text-white text-indigo-400" />
+              <CarouselNext className="relative static transform-none bg-black/80 border border-indigo-500/30 hover:bg-indigo-500/20 hover:text-white text-indigo-400" />
             </div>
           </Carousel>
         </div>
@@ -408,22 +431,22 @@ const Index = () => {
         <div className="absolute inset-0 z-0 opacity-10 circuit-pattern"></div>
         
         {/* Abstract background elements */}
-        <div className="absolute -z-10 w-96 h-96 bg-[#00d2ff]/5 rounded-full blur-3xl top-20 -right-48 animate-pulse-soft"></div>
-        <div className="absolute -z-10 w-96 h-96 bg-[#3a7bd5]/5 rounded-full blur-3xl -bottom-48 -left-48 animate-pulse-soft" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute -z-10 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl top-20 -right-48 animate-pulse-soft"></div>
+        <div className="absolute -z-10 w-96 h-96 bg-indigo-700/5 rounded-full blur-3xl -bottom-48 -left-48 animate-pulse-soft" style={{ animationDelay: '1s' }}></div>
         
         {/* Tech lines at the bottom */}
         <div className="absolute bottom-0 left-0 right-0 h-12 z-10 overflow-hidden">
-          <div className="tech-line absolute bottom-0 w-full h-px bg-gradient-to-r from-transparent via-[#00d2ff] to-transparent opacity-70"></div>
-          <div className="tech-line absolute bottom-3 w-full h-px bg-gradient-to-r from-transparent via-[#3a7bd5] to-transparent opacity-50"></div>
-          <div className="tech-line absolute bottom-6 w-full h-px bg-gradient-to-r from-transparent via-[#00d2ff] to-transparent opacity-30"></div>
+          <div className="tech-line absolute bottom-0 w-full h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-70"></div>
+          <div className="tech-line absolute bottom-3 w-full h-px bg-gradient-to-r from-transparent via-indigo-700 to-transparent opacity-50"></div>
+          <div className="tech-line absolute bottom-6 w-full h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-30"></div>
         </div>
 
         <div className="section-container text-center relative z-10">
-          <div className="inline-block px-4 py-1.5 mb-6 rounded-md bg-gradient-to-r from-[#00d2ff]/20 to-[#3a7bd5]/20 text-[#00d2ff] text-sm font-bold tracking-wide shadow-lg transform hover:scale-105 transition-all duration-300 animate-pulse-soft font-mono border border-[#00d2ff]/30">
+          <div className="inline-block px-4 py-1.5 mb-6 rounded-md bg-gradient-to-r from-indigo-500/20 to-indigo-700/20 text-indigo-400 text-sm font-bold tracking-wide shadow-lg transform hover:scale-105 transition-all duration-300 animate-pulse-soft font-mono border border-indigo-500/30">
             #SECURE YOUR WEBSITE
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-fade-in text-white font-heading">
-            Siap Bebaskan Website Anda dari <span className="bg-gradient-to-r from-[#00d2ff] to-[#3a7bd5] bg-clip-text text-transparent">Malware</span>?
+            Siap Bebaskan Website Anda dari <span className="bg-gradient-to-r from-indigo-500 to-indigo-400 bg-clip-text text-transparent">Malware</span>?
           </h2>
           <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-3xl mx-auto animate-fade-in font-mono" style={{ animationDelay: '0.1s' }}>
             Dapatkan konsultasi gratis dan biarkan tim ahli kami membantu mengamankan website Anda hari ini juga.
@@ -433,17 +456,17 @@ const Index = () => {
             <CTAButton 
               to="/contact" 
               size="lg" 
-              className="bg-gradient-to-r from-[#00d2ff] to-[#3a7bd5] hover:from-[#00b8e0] hover:to-[#3470c0] animate-glow relative overflow-hidden group z-10"
+              className="bg-gradient-to-r from-indigo-500 to-indigo-700 hover:from-indigo-600 hover:to-indigo-800 animate-glow relative overflow-hidden group z-10"
             >
               <span className="relative z-10">Konsultasi Gratis Sekarang</span>
               <span className="absolute inset-0 bg-white/10 -translate-x-full group-hover:translate-x-0 transition-transform duration-700"></span>
             </CTAButton>
             
             {/* Decorative elements */}
-            <div className="absolute -top-10 -left-10 text-[#00d2ff]/40 animate-float hidden lg:block">
+            <div className="absolute -top-10 -left-10 text-indigo-500/40 animate-float hidden lg:block">
               <Activity className="h-8 w-8" />
             </div>
-            <div className="absolute -bottom-8 -right-8 text-[#00d2ff]/30 animate-float hidden lg:block" style={{ animationDelay: '1.2s' }}>
+            <div className="absolute -bottom-8 -right-8 text-indigo-500/30 animate-float hidden lg:block" style={{ animationDelay: '1.2s' }}>
               <Layers className="h-6 w-6" />
             </div>
           </div>
