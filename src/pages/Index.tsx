@@ -1,5 +1,6 @@
+
 import { useState, useEffect } from 'react';
-import { Shield, Database, File, Zap, UserCheck, Clock, Sparkles, BadgeCheck, Lock, Award } from 'lucide-react';
+import { Shield, Database, File, Zap, UserCheck, Clock, Activity, BadgeCheck, Lock, Award, Layers, ServerCrash, AlertTriangle } from 'lucide-react';
 import Hero from '@/components/Hero';
 import ServiceCard, { ServiceFeature } from '@/components/ServiceCard';
 import TestimonialCard from '@/components/TestimonialCard';
@@ -133,55 +134,78 @@ const Index = () => {
       <Hero />
       
       {/* Malware Info Section */}
-      <section className="py-16 md:py-24 bg-white" id="info">
+      <section className="py-16 md:py-24 bg-[#0a192f] relative overflow-hidden" id="info">
+        {/* Circuit pattern background */}
+        <div className="absolute inset-0 opacity-5 circuit-pattern"></div>
+        
         <div className="section-container">
           <div className="text-center mb-16">
-            <h2 className="section-title">Kenapa Malware Berbahaya?</h2>
-            <p className="section-subtitle">
+            <div className="inline-block px-3 py-1 rounded-full bg-[#00d2ff]/10 text-[#00d2ff] text-sm font-mono mb-4">
+              THREAT INTELLIGENCE
+            </div>
+            <h2 className="section-title text-white">Kenapa Malware Berbahaya?</h2>
+            <p className="section-subtitle text-gray-400">
               Infeksi malware tidak hanya membahayakan website Anda, tetapi juga merusak reputasi dan bisnis Anda secara keseluruhan.
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-              <div className="h-12 w-12 rounded-full bg-red-100 flex items-center justify-center mb-6">
-                <Database className="h-6 w-6 text-red-600" />
+            <div className="cyber-card animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+              <div className="h-12 w-12 rounded-full bg-[#00d2ff]/10 flex items-center justify-center mb-6">
+                <Database className="h-6 w-6 text-[#00d2ff]" />
               </div>
-              <h3 className="text-xl font-bold mb-3">Kehilangan Data</h3>
-              <p className="text-muted-foreground">
+              <h3 className="text-xl font-bold mb-3 text-white">Kehilangan Data</h3>
+              <p className="text-gray-400 font-mono text-sm">
                 Malware dapat mengakses, memodifikasi, atau menghapus data penting dari website dan database Anda.
               </p>
             </div>
             
-            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-              <div className="h-12 w-12 rounded-full bg-orange-100 flex items-center justify-center mb-6">
-                <UserCheck className="h-6 w-6 text-orange-600" />
+            <div className="cyber-card animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+              <div className="h-12 w-12 rounded-full bg-[#00d2ff]/10 flex items-center justify-center mb-6">
+                <UserCheck className="h-6 w-6 text-[#00d2ff]" />
               </div>
-              <h3 className="text-xl font-bold mb-3">Kerusakan Reputasi</h3>
-              <p className="text-muted-foreground">
+              <h3 className="text-xl font-bold mb-3 text-white">Kerusakan Reputasi</h3>
+              <p className="text-gray-400 font-mono text-sm">
                 Google dapat mem-blacklist website Anda, membuat pengunjung mendapatkan peringatan bahaya saat mengakses situs Anda.
               </p>
             </div>
             
-            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-              <div className="h-12 w-12 rounded-full bg-yellow-100 flex items-center justify-center mb-6">
-                <Clock className="h-6 w-6 text-yellow-600" />
+            <div className="cyber-card animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+              <div className="h-12 w-12 rounded-full bg-[#00d2ff]/10 flex items-center justify-center mb-6">
+                <ServerCrash className="h-6 w-6 text-[#00d2ff]" />
               </div>
-              <h3 className="text-xl font-bold mb-3">Penurunan Performa</h3>
-              <p className="text-muted-foreground">
+              <h3 className="text-xl font-bold mb-3 text-white">Penurunan Performa</h3>
+              <p className="text-gray-400 font-mono text-sm">
                 Website menjadi lambat, tidak responsif, dan mengganggu pengalaman pengguna yang berdampak pada konversi.
               </p>
+            </div>
+          </div>
+          
+          {/* Security Alert Box */}
+          <div className="security-alert mt-16 max-w-3xl mx-auto">
+            <div className="flex items-start gap-4">
+              <AlertTriangle className="h-6 w-6 text-[#00d2ff] mt-1 flex-shrink-0" />
+              <div>
+                <h4 className="font-bold text-white mb-1">Fakta Keamanan</h4>
+                <p className="text-sm">37% dari semua website yang terinfeksi malware tidak menyadari adanya infeksi sampai terlambat. Pemeriksaan keamanan secara berkala sangat penting untuk mencegah serangan yang lebih parah.</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
       
       {/* Services Section */}
-      <section className="py-16 md:py-24 bg-gray-50" id="layanan">
-        <div className="section-container">
+      <section className="py-16 md:py-24 bg-black relative overflow-hidden" id="layanan">
+        {/* Hex grid background */}
+        <div className="absolute inset-0 hex-grid"></div>
+        
+        <div className="section-container relative z-10">
           <div className="text-center mb-16">
-            <h2 className="section-title">Pilih Paket Layanan Kami</h2>
-            <p className="section-subtitle">
+            <div className="inline-block px-3 py-1 rounded-full bg-[#00d2ff]/10 text-[#00d2ff] text-sm font-mono mb-4">
+              SOLUSI KAMI
+            </div>
+            <h2 className="section-title text-white">Pilih Paket Layanan Kami</h2>
+            <p className="section-subtitle text-gray-400">
               Kami menawarkan berbagai paket layanan pembersihan malware yang disesuaikan dengan kebutuhan dan anggaran Anda.
             </p>
           </div>
@@ -193,7 +217,7 @@ const Index = () => {
               price="Rp 150.000"
               description="Pembersihan malware dasar untuk website WordPress dengan infeksi ringan."
               features={basicFeatures}
-              className="animate-fade-in-up"
+              className="animate-fade-in-up border border-[#00d2ff]/20 bg-gradient-to-br from-[#0a192f] to-black"
               style={{ animationDelay: '0.1s' }}
               onSelect={() => handleServiceSelect('basic')}
             />
@@ -205,7 +229,7 @@ const Index = () => {
               description="Pembersihan malware menyeluruh dengan pengamanan dan optimasi."
               features={advancedFeatures}
               popular={true}
-              className="animate-fade-in-up"
+              className="animate-fade-in-up border border-[#00d2ff]/30 bg-gradient-to-br from-[#0a192f] to-black"
               style={{ animationDelay: '0.2s' }}
               onSelect={() => handleServiceSelect('advanced')}
             />
@@ -216,7 +240,7 @@ const Index = () => {
               price="Rp 750.000"
               description="Solusi keamanan komprehensif untuk website dengan infeksi berat atau e-commerce."
               features={premiumFeatures}
-              className="animate-fade-in-up"
+              className="animate-fade-in-up border border-[#00d2ff]/20 bg-gradient-to-br from-[#0a192f] to-black"
               style={{ animationDelay: '0.3s' }}
               onSelect={() => handleServiceSelect('premium')}
             />
@@ -225,11 +249,17 @@ const Index = () => {
       </section>
       
       {/* Process Section */}
-      <section className="py-16 md:py-24 bg-white" id="proses">
-        <div className="section-container">
+      <section className="py-16 md:py-24 bg-[#0a192f] relative overflow-hidden" id="proses">
+        {/* Code pattern background */}
+        <div className="absolute inset-0 opacity-5 code-pattern"></div>
+        
+        <div className="section-container relative z-10">
           <div className="text-center mb-16">
-            <h2 className="section-title">Proses Pembersihan Malware</h2>
-            <p className="section-subtitle">
+            <div className="inline-block px-3 py-1 rounded-full bg-[#00d2ff]/10 text-[#00d2ff] text-sm font-mono mb-4">
+              METODOLOGI
+            </div>
+            <h2 className="section-title text-white">Proses Pembersihan Malware</h2>
+            <p className="section-subtitle text-gray-400">
               Kami mengikuti metodologi yang teliti dan sistematis untuk memastikan website Anda benar-benar bersih dan aman.
             </p>
           </div>
@@ -239,43 +269,96 @@ const Index = () => {
               number={1}
               title="Diagnosa Awal"
               description="Melakukan backup data dan analisis mendalam untuk mengidentifikasi jenis malware dan titik infeksi."
-              icon={<File className="h-6 w-6 text-purple-600" />}
+              icon={<File className="h-6 w-6 text-[#00d2ff]" />}
               style={{ animationDelay: '0.1s' }}
+              className="border border-[#00d2ff]/20 bg-gradient-to-br from-[#0a192f] to-black"
             />
             
             <ProcessStep
               number={2}
               title="Pembersihan"
               description="Menghapus semua malware dan file berbahaya dari website secara menyeluruh."
-              icon={<Shield className="h-6 w-6 text-purple-600" />}
+              icon={<Shield className="h-6 w-6 text-[#00d2ff]" />}
               style={{ animationDelay: '0.2s' }}
+              className="border border-[#00d2ff]/20 bg-gradient-to-br from-[#0a192f] to-black"
             />
             
             <ProcessStep
               number={3}
               title="Pengamanan"
               description="Meningkatkan keamanan website dengan security hardening dan update sistem."
-              icon={<Lock className="h-6 w-6 text-purple-600" />}
+              icon={<Lock className="h-6 w-6 text-[#00d2ff]" />}
               style={{ animationDelay: '0.3s' }}
+              className="border border-[#00d2ff]/20 bg-gradient-to-br from-[#0a192f] to-black"
             />
             
             <ProcessStep
               number={4}
               title="Pelaporan"
               description="Memberikan laporan lengkap dan rekomendasi untuk mencegah serangan di masa depan."
-              icon={<BadgeCheck className="h-6 w-6 text-purple-600" />}
+              icon={<BadgeCheck className="h-6 w-6 text-[#00d2ff]" />}
               style={{ animationDelay: '0.4s' }}
+              className="border border-[#00d2ff]/20 bg-gradient-to-br from-[#0a192f] to-black"
             />
+          </div>
+          
+          {/* Terminal Display */}
+          <div className="mt-16 max-w-3xl mx-auto border border-[#00d2ff]/20 rounded-md overflow-hidden">
+            <div className="terminal-header">
+              <div className="terminal-circle bg-red-500/80"></div>
+              <div className="terminal-circle bg-yellow-500/80"></div>
+              <div className="terminal-circle bg-green-500/80"></div>
+              <div className="ml-3 text-xs text-gray-400">secure-cleanse@malware-scanner</div>
+            </div>
+            <div className="terminal-body h-48 overflow-auto">
+              <div className="terminal-line">
+                <span className="terminal-prompt">$</span>
+                <span className="terminal-command">scanning website.com for malware</span>
+              </div>
+              <div className="terminal-output">Initializing deep scan...</div>
+              <div className="terminal-output">Checking file integrity...</div>
+              <div className="terminal-output">Analyzing JavaScript files...</div>
+              <div className="terminal-output">Scanning PHP files...</div>
+              <div className="terminal-output text-red-400">! Detected obfuscated code in wp-content/themes/custom/footer.php</div>
+              <div className="terminal-output text-red-400">! Detected suspicious iframe in index.php</div>
+              <div className="terminal-output text-red-400">! Detected backdoor in wp-content/uploads/2023/01/image.jpg</div>
+              <div className="terminal-line mt-2">
+                <span className="terminal-prompt">$</span>
+                <span className="terminal-command">running malware removal protocol</span>
+              </div>
+              <div className="terminal-output">Creating backup...</div>
+              <div className="terminal-output">Removing malicious code...</div>
+              <div className="terminal-output">Patching vulnerable files...</div>
+              <div className="terminal-output">Updating security measures...</div>
+              <div className="terminal-output text-green-400">✓ Malware removal complete</div>
+              <div className="terminal-line mt-2">
+                <span className="terminal-prompt">$</span>
+                <span className="terminal-command">verifying website integrity</span>
+              </div>
+              <div className="terminal-output">Running follow-up scan...</div>
+              <div className="terminal-output text-green-400">✓ No malware detected</div>
+              <div className="terminal-output text-green-400">✓ Website clean and secure</div>
+              <div className="terminal-line mt-2">
+                <span className="terminal-prompt">$</span>
+                <span className="terminal-command">_<span className="animate-type-cursor">|</span></span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
       
       {/* Testimonials Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
-        <div className="section-container">
+      <section className="py-16 md:py-24 bg-black relative overflow-hidden">
+        {/* Hex grid background */}
+        <div className="absolute inset-0 hex-grid"></div>
+        
+        <div className="section-container relative z-10">
           <div className="text-center mb-16">
-            <h2 className="section-title">Klien Kami Berkata</h2>
-            <p className="section-subtitle">
+            <div className="inline-block px-3 py-1 rounded-full bg-[#00d2ff]/10 text-[#00d2ff] text-sm font-mono mb-4">
+              TESTIMONI
+            </div>
+            <h2 className="section-title text-white">Klien Kami Berkata</h2>
+            <p className="section-subtitle text-gray-400">
               Lihat apa yang dikatakan pelanggan kami tentang layanan pembersihan malware kami.
             </p>
           </div>
@@ -293,45 +376,54 @@ const Index = () => {
                   <TestimonialCard
                     {...testimonial}
                     style={{ animationDelay: `${0.1 * (index % 3 + 1)}s` }}
+                    className="border border-[#00d2ff]/20 bg-gradient-to-br from-[#0a192f] to-black"
                   />
                 </CarouselItem>
               ))}
             </CarouselContent>
             <div className="flex justify-center mt-8 gap-4">
-              <CarouselPrevious className="relative static transform-none bg-white hover:bg-primary hover:text-white" />
-              <CarouselNext className="relative static transform-none bg-white hover:bg-primary hover:text-white" />
+              <CarouselPrevious className="relative static transform-none bg-black/80 border border-[#00d2ff]/30 hover:bg-[#00d2ff]/20 hover:text-white text-[#00d2ff]" />
+              <CarouselNext className="relative static transform-none bg-black/80 border border-[#00d2ff]/30 hover:bg-[#00d2ff]/20 hover:text-white text-[#00d2ff]" />
             </div>
           </Carousel>
         </div>
       </section>
       
-      {/* CTA Section - Updated styling */}
+      {/* CTA Section - Cybersecurity themed */}
       <section className="py-16 md:py-24 relative overflow-hidden">
         {/* Dark background with improved gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0c0921] to-black/90 z-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0a192f] to-black z-0"></div>
+        
+        {/* Scanner effect */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          <div className="scanner-line"></div>
+        </div>
         
         {/* Matrix-style particle effects */}
         <div className="absolute inset-0 z-0">
           <div className="matrix-rain"></div>
         </div>
         
+        {/* Circuit patterns */}
+        <div className="absolute inset-0 z-0 opacity-10 circuit-pattern"></div>
+        
         {/* Abstract background elements */}
-        <div className="absolute -z-10 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl top-20 -right-48 animate-pulse-soft"></div>
-        <div className="absolute -z-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl -bottom-48 -left-48 animate-pulse-soft" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute -z-10 w-96 h-96 bg-[#00d2ff]/5 rounded-full blur-3xl top-20 -right-48 animate-pulse-soft"></div>
+        <div className="absolute -z-10 w-96 h-96 bg-[#3a7bd5]/5 rounded-full blur-3xl -bottom-48 -left-48 animate-pulse-soft" style={{ animationDelay: '1s' }}></div>
         
         {/* Tech lines at the bottom */}
         <div className="absolute bottom-0 left-0 right-0 h-12 z-10 overflow-hidden">
-          <div className="tech-line absolute bottom-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-70"></div>
-          <div className="tech-line absolute bottom-3 w-full h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-50"></div>
-          <div className="tech-line absolute bottom-6 w-full h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-30"></div>
+          <div className="tech-line absolute bottom-0 w-full h-px bg-gradient-to-r from-transparent via-[#00d2ff] to-transparent opacity-70"></div>
+          <div className="tech-line absolute bottom-3 w-full h-px bg-gradient-to-r from-transparent via-[#3a7bd5] to-transparent opacity-50"></div>
+          <div className="tech-line absolute bottom-6 w-full h-px bg-gradient-to-r from-transparent via-[#00d2ff] to-transparent opacity-30"></div>
         </div>
 
         <div className="section-container text-center relative z-10">
-          <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-gradient-to-r from-purple-700 to-purple-900 text-white text-sm font-bold tracking-wide shadow-lg transform hover:scale-105 transition-all duration-300 animate-pulse-soft font-mono">
+          <div className="inline-block px-4 py-1.5 mb-6 rounded-md bg-gradient-to-r from-[#00d2ff]/20 to-[#3a7bd5]/20 text-[#00d2ff] text-sm font-bold tracking-wide shadow-lg transform hover:scale-105 transition-all duration-300 animate-pulse-soft font-mono border border-[#00d2ff]/30">
             #SECURE YOUR WEBSITE
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-fade-in text-white font-heading">
-            Siap Bebaskan Website Anda dari <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">Malware</span>?
+            Siap Bebaskan Website Anda dari <span className="bg-gradient-to-r from-[#00d2ff] to-[#3a7bd5] bg-clip-text text-transparent">Malware</span>?
           </h2>
           <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-3xl mx-auto animate-fade-in font-mono" style={{ animationDelay: '0.1s' }}>
             Dapatkan konsultasi gratis dan biarkan tim ahli kami membantu mengamankan website Anda hari ini juga.
@@ -341,18 +433,18 @@ const Index = () => {
             <CTAButton 
               to="/contact" 
               size="lg" 
-              className="bg-gradient-to-r from-purple-700 to-purple-900 hover:from-purple-800 hover:to-purple-950 animate-glow relative overflow-hidden group z-10"
+              className="bg-gradient-to-r from-[#00d2ff] to-[#3a7bd5] hover:from-[#00b8e0] hover:to-[#3470c0] animate-glow relative overflow-hidden group z-10"
             >
               <span className="relative z-10">Konsultasi Gratis Sekarang</span>
-              <span className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-0 transition-transform duration-700"></span>
+              <span className="absolute inset-0 bg-white/10 -translate-x-full group-hover:translate-x-0 transition-transform duration-700"></span>
             </CTAButton>
             
-            {/* Decorative sparkles */}
-            <div className="absolute -top-10 -left-10 text-purple-400/40 animate-float hidden lg:block">
-              <Sparkles className="h-8 w-8" />
+            {/* Decorative elements */}
+            <div className="absolute -top-10 -left-10 text-[#00d2ff]/40 animate-float hidden lg:block">
+              <Activity className="h-8 w-8" />
             </div>
-            <div className="absolute -bottom-8 -right-8 text-purple-400/30 animate-float hidden lg:block" style={{ animationDelay: '1.2s' }}>
-              <Sparkles className="h-6 w-6" />
+            <div className="absolute -bottom-8 -right-8 text-[#00d2ff]/30 animate-float hidden lg:block" style={{ animationDelay: '1.2s' }}>
+              <Layers className="h-6 w-6" />
             </div>
           </div>
         </div>

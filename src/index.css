@@ -1,86 +1,48 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 260 25% 98%;
-    --foreground: 260 50% 10%;
+    --background: 220 25% 10%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 260 50% 10%;
+    --card: 220 25% 13%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 260 50% 10%;
+    --popover: 220 25% 13%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 265 89% 60%; /* Purple */
-    --primary-foreground: 260 10% 98%;
+    --primary: 196 85% 50%;  /* Cyber Blue */
+    --primary-foreground: 220 10% 98%;
 
-    --secondary: 260 25% 96%;
-    --secondary-foreground: 260 50% 10%;
+    --secondary: 220 25% 15%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 260 25% 96%;
-    --muted-foreground: 260 5% 46%;
+    --muted: 220 25% 15%;
+    --muted-foreground: 217 10% 64%;
 
-    --accent: 260 25% 96%;
-    --accent-foreground: 260 50% 10%;
+    --accent: 220 25% 15%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 260 25% 98%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 260 25% 90%;
-    --input: 260 25% 90%;
-    --ring: 260 89% 60%;
+    --border: 220 25% 16%;
+    --input: 220 25% 16%;
+    --ring: 196 85% 50%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    --sidebar-background: 260 25% 98%;
-    --sidebar-foreground: 260 5.3% 26.1%;
-    --sidebar-primary: 265 89% 60%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 260 25% 95%;
-    --sidebar-accent-foreground: 260 5.9% 10%;
-    --sidebar-border: 260 25% 90%;
-    --sidebar-ring: 265 89% 60%;
-  }
-
-  .dark {
-    --background: 260 25% 5%;
-    --foreground: 260 25% 98%;
-
-    --card: 260 25% 8%;
-    --card-foreground: 260 25% 98%;
-
-    --popover: 260 25% 8%;
-    --popover-foreground: 260 25% 98%;
-
-    --primary: 265 89% 70%; /* Brighter purple for dark mode */
-    --primary-foreground: 260 25% 10%;
-
-    --secondary: 260 25% 15%;
-    --secondary-foreground: 260 25% 98%;
-
-    --muted: 260 25% 15%;
-    --muted-foreground: 260 15% 65%;
-
-    --accent: 260 25% 15%;
-    --accent-foreground: 260 25% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 260 25% 98%;
-
-    --border: 260 25% 15%;
-    --input: 260 25% 15%;
-    --ring: 260 89% 70%;
-    
-    --sidebar-background: 260 25% 10%;
-    --sidebar-foreground: 260 15% 95%;
-    --sidebar-primary: 265 89% 70%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 260 20% 18%;
-    --sidebar-accent-foreground: 260 15% 95%;
-    --sidebar-border: 260 20% 18%;
-    --sidebar-ring: 265 89% 70%;
+    --sidebar-background: 220 25% 10%;
+    --sidebar-foreground: 217 10% 95%;
+    --sidebar-primary: 196 85% 50%;
+    --sidebar-primary-foreground: 220 10% 98%;
+    --sidebar-accent: 220 25% 15%;
+    --sidebar-accent-foreground: 217 10% 95%;
+    --sidebar-border: 220 25% 18%;
+    --sidebar-ring: 196 85% 50%;
   }
 }
 
@@ -105,7 +67,7 @@
 
 @layer components {
   .glass-card {
-    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-md;
+    @apply bg-black/80 backdrop-blur-md border border-[#00d2ff]/20 shadow-md;
   }
   
   .text-balance {
@@ -132,17 +94,17 @@
     @apply animate-fade-in;
   }
   
-  /* Modern UI Elements */
+  /* Modern Cybersecurity UI Elements */
   .gradient-border {
-    @apply relative rounded-xl p-[1px] bg-gradient-to-r from-purple-500/50 via-purple-400/30 to-purple-600/50 overflow-hidden;
+    @apply relative rounded-md p-[1px] bg-gradient-to-r from-[#00d2ff]/50 via-[#00d2ff]/30 to-[#00d2ff]/50 overflow-hidden;
   }
   
   .gradient-border-content {
-    @apply absolute inset-0 bg-white rounded-xl z-0;
+    @apply absolute inset-0 bg-black rounded-md z-0;
   }
   
   .gradient-text {
-    @apply bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#00d2ff] to-[#3a7bd5] bg-clip-text text-transparent;
   }
   
   .floating-element {
@@ -154,7 +116,7 @@
   }
   
   .glow-effect::after {
-    @apply content-[''] absolute -z-10 inset-0 rounded-xl blur-xl opacity-75 bg-gradient-to-r from-purple-500/20 to-purple-700/30 transition-all duration-700;
+    @apply content-[''] absolute -z-10 inset-0 rounded-md blur-xl opacity-75 bg-gradient-to-r from-[#00d2ff]/20 to-[#3a7bd5]/30 transition-all duration-700;
   }
   
   .glow-effect:hover::after {
@@ -165,33 +127,33 @@
     @apply transition-transform duration-300 hover:transform hover:rotate-1 hover:scale-[1.01];
   }
 
-  /* Elegant UI Components */
-  .elegant-card {
-    @apply relative overflow-hidden bg-gradient-to-br from-white to-purple-50/70 rounded-xl p-6 shadow-lg 
-           border border-purple-100/40 hover:shadow-xl transition-all duration-300;
+  /* Cybersecurity UI Components */
+  .cyber-card {
+    @apply relative overflow-hidden bg-gradient-to-br from-gray-900 to-[#0a192f] rounded-md p-6 shadow-lg 
+           border border-[#00d2ff]/20 hover:shadow-xl transition-all duration-300;
   }
   
-  .elegant-card::before {
-    @apply content-[''] absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-400/30 via-purple-500 to-purple-400/30 
+  .cyber-card::before {
+    @apply content-[''] absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#00d2ff]/30 via-[#00d2ff] to-[#00d2ff]/30 
            animate-shine bg-[length:200%_auto];
   }
   
-  .elegant-input {
-    @apply bg-white/80 border border-purple-100 focus:border-primary focus:ring-1 focus:ring-primary/30 
-           rounded-lg px-4 py-2.5 shadow-sm transition-all duration-200;
+  .cyber-input {
+    @apply bg-black/80 border border-[#00d2ff]/20 focus:border-primary focus:ring-1 focus:ring-primary/30 
+           rounded-md px-4 py-2.5 shadow-sm transition-all duration-200;
   }
   
-  .elegant-button {
-    @apply relative overflow-hidden bg-gradient-to-r from-purple-600 to-purple-800 text-white rounded-lg px-6 py-2.5
-           shadow-md hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 animate-glow;
+  .cyber-button {
+    @apply relative overflow-hidden bg-gradient-to-r from-[#00d2ff] to-[#3a7bd5] text-white rounded-md px-6 py-2.5
+           shadow-md hover:shadow-lg hover:shadow-[#00d2ff]/20 transition-all duration-300;
   }
   
-  .elegant-button::before {
+  .cyber-button::before {
     @apply content-[''] absolute top-0 right-0 bottom-0 left-0 bg-white opacity-0 transition-opacity duration-300;
   }
   
-  .elegant-button:hover::before {
-    @apply opacity-20;
+  .cyber-button:hover::before {
+    @apply opacity-10;
   }
   
   /* Enhanced Carousel Controls */
@@ -200,7 +162,7 @@
   }
   
   .carousel-button {
-    @apply h-10 w-10 rounded-full bg-white shadow-md flex items-center justify-center
+    @apply h-10 w-10 rounded-full bg-black/80 border border-[#00d2ff]/30 shadow-md flex items-center justify-center
            hover:bg-primary hover:text-white transition-all duration-300;
   }
   
@@ -213,29 +175,72 @@
     animation: pulse-soft 3s infinite;
   }
 
-  /* Purple UI Elements */
-  .purple-glow {
+  /* Cybersecurity UI Elements */
+  .cyber-glow {
     @apply relative;
   }
   
-  .purple-glow::before {
-    @apply content-[''] absolute -z-10 inset-0 rounded-full bg-purple-500/20 blur-xl transform scale-150 opacity-0 transition-opacity duration-300;
+  .cyber-glow::before {
+    @apply content-[''] absolute -z-10 inset-0 rounded-full bg-[#00d2ff]/20 blur-xl transform scale-150 opacity-0 transition-opacity duration-300;
   }
   
-  .purple-glow:hover::before {
+  .cyber-glow:hover::before {
     @apply opacity-100;
   }
   
-  .cosmic-bg {
+  .cyber-bg {
     @apply relative overflow-hidden;
   }
   
-  .cosmic-bg::before {
+  .cyber-bg::before {
     @apply content-[''] absolute inset-0 bg-gradient-radial opacity-20;
   }
   
-  .cosmic-particle {
-    @apply absolute h-1 w-1 rounded-full bg-purple-300 animate-pulse-soft;
+  .data-particle {
+    @apply absolute h-1 w-1 rounded-full bg-[#00d2ff] animate-pulse-soft;
+  }
+  
+  /* Security Shield Layer */
+  .security-shield {
+    @apply relative overflow-hidden;
+  }
+  
+  .security-shield::after {
+    @apply content-[''] absolute inset-0 bg-gradient-to-b from-transparent to-black/50 pointer-events-none z-0;
+  }
+  
+  /* Digital Code Pattern */
+  .code-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300d2ff' fill-opacity='0.05'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  /* Terminal-style Components */
+  .terminal-header {
+    @apply flex items-center px-4 py-2 bg-[#0a192f] border-b border-[#00d2ff]/20;
+  }
+  
+  .terminal-circle {
+    @apply w-3 h-3 rounded-full mx-1;
+  }
+  
+  .terminal-body {
+    @apply p-4 bg-[#0a192f] font-mono text-sm text-[#00d2ff] overflow-auto;
+  }
+  
+  .terminal-line {
+    @apply flex gap-2 mb-1;
+  }
+  
+  .terminal-prompt {
+    @apply text-[#00d2ff];
+  }
+  
+  .terminal-command {
+    @apply text-white;
+  }
+  
+  .terminal-output {
+    @apply text-gray-400 ml-4;
   }
 }
 
@@ -275,6 +280,26 @@
   }
 }
 
+@keyframes scan {
+  0%, 100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  48%, 52% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes type-cursor {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
 @layer utilities {
   .animate-float {
     animation: float 4s ease-in-out infinite;
@@ -286,5 +311,13 @@
   
   .animate-shine {
     animation: shine 3s linear infinite;
+  }
+  
+  .animate-scan {
+    animation: scan 4s ease-in-out infinite;
+  }
+  
+  .animate-type-cursor {
+    animation: type-cursor 0.8s step-end infinite;
   }
 }

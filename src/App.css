@@ -46,6 +46,11 @@
   animation: tech-line-slide 10s linear infinite;
 }
 
+/* Digital Circuit Pattern */
+.circuit-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%238b5cf6' stroke-width='0.5' stroke-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
 /* Matrix rain effect - enhanced */
 .matrix-rain {
   position: absolute;
@@ -54,20 +59,49 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
-  opacity: 0.15;
+  opacity: 0.08;
   background: linear-gradient(to bottom, 
-    rgba(139, 92, 246, 0.15) 0%,
-    rgba(0, 255, 170, 0.07) 100%);
+    rgba(0, 210, 255, 0.1) 0%,
+    rgba(0, 180, 255, 0.05) 100%);
   filter: blur(2px);
 }
 
-/* Enhance the CTA section with additional effects */
-@keyframes pulse-glow {
+/* Code Scanner Animation */
+@keyframes scan-line {
   0%, 100% {
-    box-shadow: 0 0 5px 2px rgba(139, 92, 246, 0.3);
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 0.6;
   }
   50% {
-    box-shadow: 0 0 20px 5px rgba(139, 92, 246, 0.5);
+    transform: translateY(100%);
+    opacity: 0.3;
+  }
+}
+
+.scanner-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: linear-gradient(to bottom, 
+    rgba(0, 210, 255, 0.6), 
+    rgba(0, 210, 255, 0));
+  animation: scan-line 4s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Enhanced security-themed decoration */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px 2px rgba(0, 210, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px 5px rgba(0, 210, 255, 0.5);
   }
 }
 
@@ -95,10 +129,10 @@
   color: #888;
 }
 
-/* Cybersecurity themed decorative elements - enhanced */
+/* Cyber-themed decorative elements */
 .cyber-line {
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(139, 92, 246, 0.5), transparent);
+  background: linear-gradient(to right, transparent, rgba(0, 210, 255, 0.5), transparent);
   position: relative;
   overflow: hidden;
 }
@@ -123,6 +157,33 @@
   }
 }
 
+/* Data flow animation */
+@keyframes data-flow {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+}
+
+.data-packet {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: rgba(0, 210, 255, 0.7);
+  border-radius: 50%;
+  animation: data-flow 3s infinite linear;
+}
+
 /* Font settings */
 .font-heading {
   font-family: 'IBM Plex Sans', sans-serif;
@@ -133,7 +194,49 @@
   font-family: 'IBM Plex Mono', monospace;
 }
 
+/* Cybersecurity-themed notification */
+.security-alert {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(20, 20, 40, 0.8));
+  border-left: 3px solid rgba(0, 210, 255, 0.8);
+  border-radius: 4px;
+  padding: 12px 16px;
+  color: #f0f0f0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  margin: 16px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.security-alert::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, 
+    rgba(0, 210, 255, 0) 0%,
+    rgba(0, 210, 255, 0.05) 50%,
+    rgba(0, 210, 255, 0) 100%);
+  animation: cyber-line-slide 4s infinite linear;
+}
+
 /* Page transitions */
 .page-transition {
   transition: opacity 0.5s ease-in-out;
+}
+
+/* Hexagon Grid Background */
+.hex-grid {
+  background-color: rgba(10, 15, 30, 1);
+  background-image: 
+    linear-gradient(30deg, rgba(0, 210, 255, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(0, 210, 255, 0.03) 87.5%, rgba(0, 210, 255, 0.03)),
+    linear-gradient(150deg, rgba(0, 210, 255, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(0, 210, 255, 0.03) 87.5%, rgba(0, 210, 255, 0.03)),
+    linear-gradient(30deg, rgba(0, 210, 255, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(0, 210, 255, 0.03) 87.5%, rgba(0, 210, 255, 0.03)),
+    linear-gradient(150deg, rgba(0, 210, 255, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(0, 210, 255, 0.03) 87.5%, rgba(0, 210, 255, 0.03)),
+    linear-gradient(60deg, rgba(0, 210, 255, 0.05) 25%, transparent 25.5%, transparent 75%, rgba(0, 210, 255, 0.05) 75%, rgba(0, 210, 255, 0.05)),
+    linear-gradient(60deg, rgba(0, 210, 255, 0.05) 25%, transparent 25.5%, transparent 75%, rgba(0, 210, 255, 0.05) 75%, rgba(0, 210, 255, 0.05));
+  background-size: 40px 70px;
+  background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
 }
