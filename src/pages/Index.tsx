@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Shield, Database, File, Zap, UserCheck, Clock, Sparkles, BadgeCheck, Lock, Award } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -306,10 +305,10 @@ const Index = () => {
         </div>
       </section>
       
-      {/* CTA Section */}
+      {/* CTA Section - Updated styling */}
       <section className="py-16 md:py-24 relative overflow-hidden">
-        {/* Dark background */}
-        <div className="absolute inset-0 bg-black z-0"></div>
+        {/* Dark background with improved gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0c0921] to-black/90 z-0"></div>
         
         {/* Matrix-style particle effects */}
         <div className="absolute inset-0 z-0">
@@ -317,8 +316,8 @@ const Index = () => {
         </div>
         
         {/* Abstract background elements */}
-        <div className="absolute -z-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl top-20 -right-48 animate-pulse-soft"></div>
-        <div className="absolute -z-10 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl -bottom-48 -left-48 animate-pulse-soft" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute -z-10 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl top-20 -right-48 animate-pulse-soft"></div>
+        <div className="absolute -z-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl -bottom-48 -left-48 animate-pulse-soft" style={{ animationDelay: '1s' }}></div>
         
         {/* Tech lines at the bottom */}
         <div className="absolute bottom-0 left-0 right-0 h-12 z-10 overflow-hidden">
@@ -328,11 +327,11 @@ const Index = () => {
         </div>
 
         <div className="section-container text-center relative z-10">
-          <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-gradient-to-r from-purple-600 to-purple-800 text-white text-sm font-bold tracking-wide shadow-lg transform hover:scale-105 transition-all duration-300 animate-pulse-soft font-mono">
+          <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-gradient-to-r from-purple-700 to-purple-900 text-white text-sm font-bold tracking-wide shadow-lg transform hover:scale-105 transition-all duration-300 animate-pulse-soft font-mono">
             #SECURE YOUR WEBSITE
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-fade-in text-white font-heading">
-            Siap Bebaskan Website Anda dari <span className="text-purple-400">Malware</span>?
+            Siap Bebaskan Website Anda dari <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">Malware</span>?
           </h2>
           <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-3xl mx-auto animate-fade-in font-mono" style={{ animationDelay: '0.1s' }}>
             Dapatkan konsultasi gratis dan biarkan tim ahli kami membantu mengamankan website Anda hari ini juga.
@@ -342,7 +341,7 @@ const Index = () => {
             <CTAButton 
               to="/contact" 
               size="lg" 
-              className="bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900 animate-glow relative overflow-hidden group z-10"
+              className="bg-gradient-to-r from-purple-700 to-purple-900 hover:from-purple-800 hover:to-purple-950 animate-glow relative overflow-hidden group z-10"
             >
               <span className="relative z-10">Konsultasi Gratis Sekarang</span>
               <span className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-0 transition-transform duration-700"></span>
