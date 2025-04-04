@@ -23,6 +23,12 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'sans': ['IBM Plex Sans', 'sans-serif'],
+				'mono': ['IBM Plex Mono', 'monospace'],
+				'heading': ['IBM Plex Sans', 'sans-serif'],
+				'body': ['IBM Plex Mono', 'monospace'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -205,6 +211,7 @@ export default {
 				'200%': '200% 100%',
 			},
 			backgroundImage: {
+				'malware-grid': "url('/lovable-uploads/7950b938-4299-49bb-9d7a-4d36e274a9b2.png')",
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'purple-glow': 'radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, rgba(76, 29, 149, 0.1) 70%, transparent 100%)',
 				'dark-pattern': 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%239C92AC\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
