@@ -58,12 +58,12 @@ const Navbar = () => {
     <nav 
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4",
-        isScrolled ? "bg-white/80 shadow-sm backdrop-blur-lg" : "bg-transparent"
+        isScrolled ? "bg-black/90 shadow-sm backdrop-blur-lg" : "bg-black/70 backdrop-blur-md"
       )}
     >
       <div className="container flex items-center justify-between">
         <Link to="/" className="flex items-center">
-          <span className="text-xl font-bold text-primary">SecureCleanse</span>
+          <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">SecureCleanse</span>
         </Link>
         
         {/* Desktop Navigation */}
@@ -75,8 +75,8 @@ const Navbar = () => {
               className={cn(
                 "transition-colors duration-200 text-sm font-medium",
                 isActive(link.path) 
-                  ? "text-primary" 
-                  : "text-muted-foreground hover:text-foreground"
+                  ? "text-purple-400 hover:text-purple-300" 
+                  : "text-gray-300 hover:text-white"
               )}
             >
               {link.name}
@@ -87,7 +87,7 @@ const Navbar = () => {
             <div className="flex items-center gap-4">
               <Button
                 variant="ghost"
-                className="text-sm font-medium"
+                className="text-sm font-medium text-gray-300 hover:text-white hover:bg-purple-900/50"
                 onClick={() => navigate('/dashboard')}
               >
                 Dashboard
@@ -97,18 +97,18 @@ const Navbar = () => {
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="relative h-8 w-8 rounded-full">
                     <Avatar className="h-8 w-8">
-                      <AvatarFallback className="bg-primary text-primary-foreground">
+                      <AvatarFallback className="bg-purple-700 text-white">
                         {getInitials(profile?.full_name || user.email || '')}
                       </AvatarFallback>
                     </Avatar>
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  <DropdownMenuItem onClick={() => navigate('/dashboard')}>
+                <DropdownMenuContent align="end" className="bg-black/90 border-purple-800/50 text-gray-200">
+                  <DropdownMenuItem onClick={() => navigate('/dashboard')} className="hover:bg-purple-900/30 hover:text-white focus:bg-purple-900/30 focus:text-white">
                     <User className="mr-2 h-4 w-4" />
                     <span>Profil</span>
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={handleLogout}>
+                  <DropdownMenuItem onClick={handleLogout} className="hover:bg-purple-900/30 hover:text-white focus:bg-purple-900/30 focus:text-white">
                     <LogOut className="mr-2 h-4 w-4" />
                     <span>Logout</span>
                   </DropdownMenuItem>
@@ -119,7 +119,7 @@ const Navbar = () => {
             <>
               <Button
                 variant="ghost"
-                className="text-sm font-medium"
+                className="text-sm font-medium text-gray-300 hover:text-white hover:bg-purple-900/50"
                 onClick={() => navigate('/login')}
               >
                 <LogIn className="h-4 w-4 mr-2" />
@@ -127,6 +127,7 @@ const Navbar = () => {
               </Button>
               <Button
                 variant="outline"
+                className="border-purple-600 text-purple-400 hover:bg-purple-900/50 hover:text-white"
                 onClick={() => navigate('/signup')}
               >
                 <UserPlus className="h-4 w-4 mr-2" />
@@ -135,14 +136,14 @@ const Navbar = () => {
             </>
           )}
           
-          <Button asChild className="animate-pulse-soft">
+          <Button asChild className="bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900 text-white animate-pulse-soft">
             <Link to="/contact">Konsultasi Gratis</Link>
           </Button>
         </div>
         
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-foreground"
+          className="md:hidden text-gray-300 hover:text-white"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={mobileMenuOpen ? "Close Menu" : "Open Menu"}
         >
@@ -152,7 +153,7 @@ const Navbar = () => {
       
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-16 z-50 bg-background animate-fade-in">
+        <div className="md:hidden fixed inset-0 top-16 z-50 bg-black/95 animate-fade-in">
           <div className="flex flex-col space-y-6 p-6 pt-10">
             {navLinks.map((link) => (
               <Link
@@ -161,8 +162,8 @@ const Navbar = () => {
                 className={cn(
                   "text-lg font-medium transition-colors duration-200 py-2",
                   isActive(link.path) 
-                    ? "text-primary" 
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "text-purple-400" 
+                    : "text-gray-300 hover:text-white"
                 )}
               >
                 {link.name}
@@ -173,13 +174,13 @@ const Navbar = () => {
               <>
                 <Link
                   to="/dashboard"
-                  className="text-lg font-medium transition-colors duration-200 py-2"
+                  className="text-lg font-medium transition-colors duration-200 py-2 text-gray-300 hover:text-white"
                 >
                   Dashboard
                 </Link>
                 <Button 
                   onClick={handleLogout}
-                  className="w-full"
+                  className="w-full bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900 text-white"
                 >
                   <LogOut className="mr-2 h-4 w-4" />
                   Logout
@@ -189,14 +190,14 @@ const Navbar = () => {
               <>
                 <Link
                   to="/login"
-                  className="flex items-center text-lg font-medium transition-colors duration-200 py-2"
+                  className="flex items-center text-lg font-medium transition-colors duration-200 py-2 text-gray-300 hover:text-white"
                 >
                   <LogIn className="h-5 w-5 mr-2" />
                   Login
                 </Link>
                 <Link
                   to="/signup"
-                  className="flex items-center text-lg font-medium transition-colors duration-200 py-2"
+                  className="flex items-center text-lg font-medium transition-colors duration-200 py-2 text-gray-300 hover:text-white"
                 >
                   <UserPlus className="h-5 w-5 mr-2" />
                   Daftar
@@ -204,7 +205,7 @@ const Navbar = () => {
               </>
             )}
             
-            <Button asChild className="w-full mt-4">
+            <Button asChild className="w-full bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900 text-white mt-4">
               <Link to="/contact">Konsultasi Gratis</Link>
             </Button>
           </div>
