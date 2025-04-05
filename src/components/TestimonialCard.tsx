@@ -22,25 +22,26 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   return (
     <div 
       className={cn(
-        "rounded-lg p-6 relative overflow-hidden h-full flex flex-col",
+        "rounded-lg p-8 relative overflow-hidden h-full flex flex-col",
+        "bg-black/80 backdrop-blur-md border border-indigo-500/20 shadow-md",
         className
       )}
       style={style}
     >
       {/* Background decorative elements */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-400/10 rounded-full transform translate-x-16 -translate-y-16 blur-2xl group-hover:bg-indigo-400/20 transition-all duration-700"></div>
+      <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-600/10 rounded-full transform translate-x-16 -translate-y-16 blur-2xl group-hover:bg-indigo-600/20 transition-all duration-700"></div>
       <div className="absolute bottom-0 left-0 w-24 h-24 bg-indigo-600/10 rounded-full transform -translate-x-12 translate-y-12 blur-xl group-hover:bg-indigo-600/20 transition-all duration-700"></div>
       
       {/* Decorative elements */}
-      <div className="absolute -z-10 h-20 w-1 bg-gradient-to-b from-indigo-400/0 via-indigo-500/20 to-indigo-400/0 rounded-full left-2 top-1/2 transform -translate-y-1/2"></div>
+      <div className="absolute -z-10 h-20 w-1 bg-gradient-to-b from-indigo-600/0 via-indigo-600/20 to-indigo-600/0 rounded-full left-2 top-1/2 transform -translate-y-1/2"></div>
       
       {/* Sparkle decorations */}
-      <div className="absolute bottom-4 right-8 text-indigo-400/40 transform rotate-12 scale-75 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+      <div className="absolute bottom-4 right-8 text-indigo-500/40 transform rotate-12 scale-75 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
         <Sparkles className="h-4 w-4" />
       </div>
       
       {/* Quote icon */}
-      <div className="absolute top-4 right-4 text-indigo-500/10 group-hover:text-indigo-500/20 transition-all duration-500 transform rotate-180">
+      <div className="absolute top-4 right-4 text-indigo-600/10 group-hover:text-indigo-600/20 transition-all duration-500 transform rotate-180">
         <Quote className="h-12 w-12" />
       </div>
       
@@ -51,7 +52,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
             key={i}
             className={cn(
               "h-5 w-5 mr-1 transition-all duration-300 hover:scale-110",
-              i < rating ? "text-indigo-500 fill-indigo-500" : "text-gray-300"
+              i < rating ? "text-indigo-500 fill-indigo-500" : "text-gray-600"
             )}
           />
         ))}
