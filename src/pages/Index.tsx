@@ -1,6 +1,5 @@
-
 import { useState, useEffect } from 'react';
-import { Shield, Database, File, Zap, UserCheck, Clock, Activity, BadgeCheck, Lock, Award, Layers, ServerCrash, AlertTriangle } from 'lucide-react';
+import { Shield, Database, File, Zap, UserCheck, Clock, Activity, BadgeCheck, Lock, Award, Layers, ServerCrash, AlertTriangle, Star } from 'lucide-react';
 import Hero from '@/components/Hero';
 import ServiceCard, { ServiceFeature } from '@/components/ServiceCard';
 import TestimonialCard from '@/components/TestimonialCard';
