@@ -29,11 +29,11 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       style={style}
     >
       {/* Background decorative elements */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-600/10 rounded-full transform translate-x-16 -translate-y-16 blur-2xl group-hover:bg-indigo-600/20 transition-all duration-700"></div>
-      <div className="absolute bottom-0 left-0 w-24 h-24 bg-indigo-600/10 rounded-full transform -translate-x-12 translate-y-12 blur-xl group-hover:bg-indigo-600/20 transition-all duration-700"></div>
+      <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 rounded-full transform translate-x-16 -translate-y-16 blur-2xl group-hover:bg-indigo-500/20 transition-all duration-700"></div>
+      <div className="absolute bottom-0 left-0 w-24 h-24 bg-indigo-500/10 rounded-full transform -translate-x-12 translate-y-12 blur-xl group-hover:bg-indigo-500/20 transition-all duration-700"></div>
       
       {/* Decorative elements */}
-      <div className="absolute -z-10 h-20 w-1 bg-gradient-to-b from-indigo-600/0 via-indigo-600/20 to-indigo-600/0 rounded-full left-2 top-1/2 transform -translate-y-1/2"></div>
+      <div className="absolute -z-10 h-20 w-1 bg-gradient-to-b from-indigo-500/0 via-indigo-500/20 to-indigo-500/0 rounded-full left-2 top-1/2 transform -translate-y-1/2"></div>
       
       {/* Sparkle decorations */}
       <div className="absolute bottom-4 right-8 text-indigo-500/40 transform rotate-12 scale-75 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -41,7 +41,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       </div>
       
       {/* Quote icon */}
-      <div className="absolute top-4 right-4 text-indigo-600/10 group-hover:text-indigo-600/20 transition-all duration-500 transform rotate-180">
+      <div className="absolute top-4 right-4 text-indigo-500/10 group-hover:text-indigo-500/20 transition-all duration-500 transform rotate-180">
         <Quote className="h-12 w-12" />
       </div>
       
