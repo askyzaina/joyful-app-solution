@@ -62,38 +62,38 @@ const Hero = () => {
           </div>
           
           <div className="w-full lg:w-1/2 relative animate-fade-in-up">
-            <div className="aspect-[4/3] bg-gradient-to-br from-black/90 to-[#0a192f]/80 rounded-md shadow-xl overflow-hidden glass-card p-6 md:p-8 backdrop-blur border border-indigo-500/20">
+            <div className="aspect-[4/3] bg-gradient-to-br from-black/90 to-[#0a192f]/80 rounded-md shadow-xl overflow-hidden glass-card p-8 md:p-10 backdrop-blur border border-indigo-500/20">
               {/* Fixed positioning for the guarantee badge */}
               <div className="absolute top-4 right-4 bg-[#0a192f]/70 text-indigo-400 px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm font-mono z-10">
                 Garansi 90 Hari
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="p-4 rounded-md bg-black/60 backdrop-blur-sm flex items-start animate-slide-in-left group hover:bg-indigo-500/10 transition-colors duration-300 border border-indigo-500/10" style={{ animationDelay: '0.4s' }}>
+                <div className="p-5 md:p-6 rounded-md bg-black/60 backdrop-blur-sm flex items-start animate-slide-in-left group hover:bg-indigo-500/10 transition-colors duration-300 border border-indigo-500/10" style={{ animationDelay: '0.4s' }}>
                   <Shield className="h-8 w-8 text-indigo-500 mr-4 flex-shrink-0 group-hover:text-indigo-400 transition-colors duration-300" />
                   <div>
-                    <h3 className="font-semibold mb-1 group-hover:text-indigo-400 transition-colors duration-300 text-white">Perlindungan Total</h3>
+                    <h3 className="font-semibold mb-2 group-hover:text-indigo-400 transition-colors duration-300 text-white">Perlindungan Total</h3>
                     <p className="text-sm text-gray-300 font-mono">Menghapus semua jenis malware dan memperkuat keamanan</p>
                   </div>
                 </div>
-                <div className="p-4 rounded-md bg-black/60 backdrop-blur-sm flex items-start animate-slide-in-right group hover:bg-indigo-500/10 transition-colors duration-300 border border-indigo-500/10" style={{ animationDelay: '0.5s' }}>
+                <div className="p-5 md:p-6 rounded-md bg-black/60 backdrop-blur-sm flex items-start animate-slide-in-right group hover:bg-indigo-500/10 transition-colors duration-300 border border-indigo-500/10" style={{ animationDelay: '0.5s' }}>
                   <Zap className="h-8 w-8 text-indigo-500 mr-4 flex-shrink-0 group-hover:text-indigo-400 transition-colors duration-300" />
                   <div>
-                    <h3 className="font-semibold mb-1 group-hover:text-indigo-400 transition-colors duration-300 text-white">Respon Cepat</h3>
+                    <h3 className="font-semibold mb-2 group-hover:text-indigo-400 transition-colors duration-300 text-white">Respon Cepat</h3>
                     <p className="text-sm text-gray-300 font-mono">Penanganan dalam 24 jam dengan hasil maksimal</p>
                   </div>
                 </div>
-                <div className="p-4 rounded-md bg-black/60 backdrop-blur-sm flex items-start animate-slide-in-left group hover:bg-indigo-500/10 transition-colors duration-300 border border-indigo-500/10" style={{ animationDelay: '0.6s' }}>
+                <div className="p-5 md:p-6 rounded-md bg-black/60 backdrop-blur-sm flex items-start animate-slide-in-left group hover:bg-indigo-500/10 transition-colors duration-300 border border-indigo-500/10" style={{ animationDelay: '0.6s' }}>
                   <Award className="h-8 w-8 text-indigo-500 mr-4 flex-shrink-0 group-hover:text-indigo-400 transition-colors duration-300" />
                   <div>
-                    <h3 className="font-semibold mb-1 group-hover:text-indigo-400 transition-colors duration-300 text-white">Tim Berpengalaman</h3>
+                    <h3 className="font-semibold mb-2 group-hover:text-indigo-400 transition-colors duration-300 text-white">Tim Berpengalaman</h3>
                     <p className="text-sm text-gray-300 font-mono">Ditangani oleh ahli keamanan web profesional</p>
                   </div>
                 </div>
-                <div className="p-4 rounded-md bg-black/60 backdrop-blur-sm flex items-start animate-slide-in-right group hover:bg-indigo-500/10 transition-colors duration-300 border border-indigo-500/10" style={{ animationDelay: '0.7s' }}>
+                <div className="p-5 md:p-6 rounded-md bg-black/60 backdrop-blur-sm flex items-start animate-slide-in-right group hover:bg-indigo-500/10 transition-colors duration-300 border border-indigo-500/10" style={{ animationDelay: '0.7s' }}>
                   <BadgeCheck className="h-8 w-8 text-indigo-500 mr-4 flex-shrink-0 group-hover:text-indigo-400 transition-colors duration-300" />
                   <div>
-                    <h3 className="font-semibold mb-1 group-hover:text-indigo-400 transition-colors duration-300 text-white">Harga Bersaing</h3>
+                    <h3 className="font-semibold mb-2 group-hover:text-indigo-400 transition-colors duration-300 text-white">Harga Bersaing</h3>
                     <p className="text-sm text-gray-300 font-mono">Layanan premium dengan harga terjangkau</p>
                   </div>
                 </div>

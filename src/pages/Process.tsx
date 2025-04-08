@@ -149,17 +149,17 @@ const Process = () => {
                 </div>
                 
                 <div className={`order-1 ${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}>
-                  <div className={`p-8 rounded-2xl h-full ${step.bgColor} bg-opacity-10 border border-opacity-30 shadow-lg relative overflow-hidden`} style={{ borderColor: step.bgColor }}>
+                  <div className={`p-10 md:p-12 rounded-2xl h-full ${step.bgColor} bg-opacity-10 border border-opacity-30 shadow-lg relative overflow-hidden`} style={{ borderColor: step.bgColor }}>
                     <div className="absolute top-0 right-0 bottom-0 left-0 opacity-5">
                       <div className={`absolute inset-0 ${step.bgColor}`}></div>
                       <div className="absolute inset-0 bg-gradient-to-br from-white via-transparent to-transparent"></div>
                     </div>
                     
                     <div className="relative z-10">
-                      <div className={`text-7xl font-bold ${step.bgColor} text-opacity-20 mb-6`}>{step.id}</div>
-                      <h3 className="text-2xl font-bold mb-6">{step.title}</h3>
-                      <p className="mb-8 text-muted-foreground">{step.description}</p>
-                      <div className={`inline-block px-4 py-2 rounded-full ${step.bgColor} text-white font-medium`}>
+                      <div className={`text-7xl font-bold ${step.bgColor} text-opacity-20 mb-8`}>{step.id}</div>
+                      <h3 className="text-2xl font-bold mb-8">{step.title}</h3>
+                      <p className="mb-10 text-muted-foreground">{step.description}</p>
+                      <div className={`inline-block px-5 py-2.5 rounded-full ${step.bgColor} text-white font-medium`}>
                         {step.id === 1 && "Durasi: 2-4 Jam"}
                         {step.id === 2 && "Durasi: 4-8 Jam"}
                         {step.id === 3 && "Durasi: 2-4 Jam"}
@@ -186,11 +186,11 @@ const Process = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100 animate-fade-in-up" style={{ animationDelay: `${0.1 * (index + 1)}s` }}>
+              <div key={index} className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100 animate-fade-in-up" style={{ animationDelay: `${0.1 * (index + 1)}s` }}>
                 <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                   {benefit.icon}
                 </div>
-                <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
+                <h3 className="text-xl font-bold mb-4">{benefit.title}</h3>
                 <p className="text-muted-foreground">{benefit.description}</p>
               </div>
             ))}

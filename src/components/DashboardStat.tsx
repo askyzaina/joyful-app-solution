@@ -23,30 +23,30 @@ const DashboardStat: React.FC<DashboardStatProps> = ({
 }) => {
   return (
     <div className={cn(
-      "p-6 rounded-xl border border-border bg-white shadow-sm hover:shadow-md transition-shadow elegant-card", 
+      "p-7 md:p-8 rounded-xl border border-border bg-white shadow-sm hover:shadow-md transition-shadow elegant-card", 
       className
     )}>
       <div className="flex items-start justify-between">
         <div className="flex-1">
-          <p className="text-sm font-medium text-muted-foreground mb-1">{title}</p>
-          <h3 className="text-2xl font-bold mb-1">{value}</h3>
+          <p className="text-sm font-medium text-muted-foreground mb-2">{title}</p>
+          <h3 className="text-2xl font-bold mb-2">{value}</h3>
           <p className="text-sm text-muted-foreground">{description}</p>
         </div>
-        <div className="h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center">
+        <div className="h-12 w-12 rounded-full bg-indigo-100 flex items-center justify-center ml-4">
           {icon}
         </div>
       </div>
       
       {trend && (
-        <div className="mt-4 pt-4 border-t border-border">
+        <div className="mt-6 pt-4 border-t border-border">
           <div className={cn(
             "flex items-center text-sm",
             trend === 'up' ? 'text-green-600' : trend === 'down' ? 'text-red-600' : 'text-muted-foreground'
           )}>
             {trend === 'up' ? (
-              <ArrowUpRight className="h-4 w-4 mr-1" />
+              <ArrowUpRight className="h-4 w-4 mr-2" />
             ) : trend === 'down' ? (
-              <ArrowDownRight className="h-4 w-4 mr-1" />
+              <ArrowDownRight className="h-4 w-4 mr-2" />
             ) : null}
             <span>{trendValue} dalam 30 hari terakhir</span>
           </div>

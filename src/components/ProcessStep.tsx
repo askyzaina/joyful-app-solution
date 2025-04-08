@@ -56,8 +56,8 @@ const ProcessStep: React.FC<ProcessStepProps> = ({
         <div className="absolute -z-10 -top-1 -left-1 h-3 w-3 rounded-full bg-indigo-400/40 animate-pulse-soft" style={{ animationDelay: '0.5s' }}></div>
       </div>
       
-      <h3 className="text-xl font-bold mb-3 text-balance">{title}</h3>
-      <p className="text-muted-foreground max-w-xs mx-auto">{description}</p>
+      <h3 className="text-xl font-bold mb-3 text-balance px-4">{title}</h3>
+      <p className="text-muted-foreground max-w-xs mx-auto px-6 pb-6">{description}</p>
       
       {/* Enhanced decorative sparkle */}
       <div className="absolute top-1/2 right-0 text-indigo-300/40 transform rotate-12 opacity-70">
