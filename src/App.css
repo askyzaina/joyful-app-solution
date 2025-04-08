@@ -1,3 +1,4 @@
+
 #root {
   margin: 0 auto;
   text-align: center;
@@ -178,7 +179,7 @@
   position: absolute;
   width: 2px;
   height: 2px;
-  background-color: rgba(0, 210, 255, 0.7);
+  background-color: rgba(79, 70, 229, 0.7);
   border-radius: 50%;
   animation: data-flow 3s infinite linear;
 }

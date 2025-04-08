@@ -74,8 +74,8 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				cyber: {
-					'blue': '#4f46e5',
-					'blue-dark': '#4338ca',
+					'blue': '#4f46e5', // Changed to indigo
+					'blue-dark': '#4338ca', // Changed to darker indigo
 					'dark': '#0a192f',
 					'black': '#050a18',
 				},

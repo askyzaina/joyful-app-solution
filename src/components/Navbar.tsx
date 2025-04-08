@@ -59,14 +59,14 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4",
         isScrolled 
-          ? "bg-black/90 shadow-sm backdrop-blur-lg border-b border-[#00d2ff]/10" 
+          ? "bg-black/90 shadow-sm backdrop-blur-lg border-b border-indigo-500/10" 
           : "bg-black/70 backdrop-blur-md"
       )}
     >
       <div className="container flex items-center justify-between">
         <Link to="/" className="flex items-center">
-          <Shield className="h-5 w-5 mr-2 text-[#00d2ff]" />
-          <span className="text-xl font-bold bg-gradient-to-r from-[#00d2ff] to-[#3a7bd5] bg-clip-text text-transparent">SecureCleanse</span>
+          <Shield className="h-5 w-5 mr-2 text-indigo-500" />
+          <span className="text-xl font-bold bg-gradient-to-r from-indigo-500 to-indigo-700 bg-clip-text text-transparent">SecureCleanse</span>
         </Link>
         
         {/* Desktop Navigation */}
@@ -78,7 +78,7 @@ const Navbar = () => {
               className={cn(
                 "transition-colors duration-200 text-sm font-medium",
                 isActive(link.path) 
-                  ? "text-[#00d2ff] hover:text-[#00d2ff]/80" 
+                  ? "text-indigo-500 hover:text-indigo-400" 
                   : "text-gray-300 hover:text-white"
               )}
             >
@@ -90,7 +90,7 @@ const Navbar = () => {
             <div className="flex items-center gap-4">
               <Button
                 variant="ghost"
-                className="text-sm font-medium text-gray-300 hover:text-white hover:bg-[#00d2ff]/10"
+                className="text-sm font-medium text-gray-300 hover:text-white hover:bg-indigo-500/10"
                 onClick={() => navigate('/dashboard')}
               >
                 Dashboard
@@ -100,18 +100,18 @@ const Navbar = () => {
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="relative h-8 w-8 rounded-full">
                     <Avatar className="h-8 w-8">
-                      <AvatarFallback className="bg-[#00d2ff] text-white">
+                      <AvatarFallback className="bg-indigo-600 text-white">
                         {getInitials(profile?.full_name || user.email || '')}
                       </AvatarFallback>
                     </Avatar>
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="bg-black/90 border-[#00d2ff]/30 text-gray-200">
-                  <DropdownMenuItem onClick={() => navigate('/dashboard')} className="hover:bg-[#00d2ff]/10 hover:text-white focus:bg-[#00d2ff]/10 focus:text-white">
+                <DropdownMenuContent align="end" className="bg-black/90 border-indigo-500/30 text-gray-200">
+                  <DropdownMenuItem onClick={() => navigate('/dashboard')} className="hover:bg-indigo-500/10 hover:text-white focus:bg-indigo-500/10 focus:text-white">
                     <User className="mr-2 h-4 w-4" />
                     <span>Profil</span>
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={handleLogout} className="hover:bg-[#00d2ff]/10 hover:text-white focus:bg-[#00d2ff]/10 focus:text-white">
+                  <DropdownMenuItem onClick={handleLogout} className="hover:bg-indigo-500/10 hover:text-white focus:bg-indigo-500/10 focus:text-white">
                     <LogOut className="mr-2 h-4 w-4" />
                     <span>Logout</span>
                   </DropdownMenuItem>
@@ -122,7 +122,7 @@ const Navbar = () => {
             <>
               <Button
                 variant="ghost"
-                className="text-sm font-medium text-gray-300 hover:text-white hover:bg-[#00d2ff]/10"
+                className="text-sm font-medium text-gray-300 hover:text-white hover:bg-indigo-500/10"
                 onClick={() => navigate('/login')}
               >
                 <LogIn className="h-4 w-4 mr-2" />
@@ -130,7 +130,7 @@ const Navbar = () => {
               </Button>
               <Button
                 variant="outline"
-                className="border-[#00d2ff] text-[#00d2ff] hover:bg-[#00d2ff]/10 hover:text-white"
+                className="border-indigo-500 text-indigo-500 hover:bg-indigo-500/10 hover:text-white"
                 onClick={() => navigate('/signup')}
               >
                 <UserPlus className="h-4 w-4 mr-2" />
@@ -139,7 +139,7 @@ const Navbar = () => {
             </>
           )}
           
-          <Button asChild className="bg-gradient-to-r from-[#00d2ff] to-[#3a7bd5] hover:from-[#00b8e0] hover:to-[#3470c0] text-white animate-pulse-soft">
+          <Button asChild className="bg-gradient-to-r from-indigo-500 to-indigo-700 hover:from-indigo-600 hover:to-indigo-800 text-white animate-pulse-soft">
             <Link to="/contact">Konsultasi Gratis</Link>
           </Button>
         </div>
@@ -165,7 +165,7 @@ const Navbar = () => {
                 className={cn(
                   "text-lg font-medium transition-colors duration-200 py-2",
                   isActive(link.path) 
-                    ? "text-[#00d2ff]" 
+                    ? "text-indigo-500" 
                     : "text-gray-300 hover:text-white"
                 )}
               >
@@ -183,7 +183,7 @@ const Navbar = () => {
                 </Link>
                 <Button 
                   onClick={handleLogout}
-                  className="w-full bg-gradient-to-r from-[#00d2ff] to-[#3a7bd5] hover:from-[#00b8e0] hover:to-[#3470c0] text-white"
+                  className="w-full bg-gradient-to-r from-indigo-500 to-indigo-700 hover:from-indigo-600 hover:to-indigo-800 text-white"
                 >
                   <LogOut className="mr-2 h-4 w-4" />
                   Logout
@@ -208,7 +208,7 @@ const Navbar = () => {
               </>
             )}
             
-            <Button asChild className="w-full bg-gradient-to-r from-[#00d2ff] to-[#3a7bd5] hover:from-[#00b8e0] hover:to-[#3470c0] text-white mt-4">
+            <Button asChild className="w-full bg-gradient-to-r from-indigo-500 to-indigo-700 hover:from-indigo-600 hover:to-indigo-800 text-white mt-4">
               <Link to="/contact">Konsultasi Gratis</Link>
             </Button>
           </div>
