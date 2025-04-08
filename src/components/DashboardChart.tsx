@@ -65,12 +65,12 @@ const DashboardChart = () => {
       >
         <defs>
           <linearGradient id="colorThreats" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="#7c3aed" stopOpacity={0.8} />
-            <stop offset="95%" stopColor="#7c3aed" stopOpacity={0} />
+            <stop offset="5%" stopColor="#4f46e5" stopOpacity={0.8} />
+            <stop offset="95%" stopColor="#4f46e5" stopOpacity={0} />
           </linearGradient>
           <linearGradient id="colorScans" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.8} />
-            <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
+            <stop offset="5%" stopColor="#6366f1" stopOpacity={0.8} />
+            <stop offset="95%" stopColor="#6366f1" stopOpacity={0} />
           </linearGradient>
           <linearGradient id="colorIssues" x1="0" y1="0" x2="0" y2="1">
             <stop offset="5%" stopColor="#f59e0b" stopOpacity={0.8} />
@@ -95,7 +95,7 @@ const DashboardChart = () => {
           type="monotone" 
           dataKey="threats" 
           name="Threats Detected" 
-          stroke="#7c3aed" 
+          stroke="#4f46e5" 
           fillOpacity={1} 
           fill="url(#colorThreats)" 
         />
@@ -103,7 +103,7 @@ const DashboardChart = () => {
           type="monotone" 
           dataKey="scans" 
           name="Security Scans" 
-          stroke="#3b82f6" 
+          stroke="#6366f1" 
           fillOpacity={1} 
           fill="url(#colorScans)" 
         />

@@ -32,7 +32,7 @@ const DashboardStat: React.FC<DashboardStatProps> = ({
           <h3 className="text-2xl font-bold mb-1">{value}</h3>
           <p className="text-sm text-muted-foreground">{description}</p>
         </div>
-        <div className="h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center">
+        <div className="h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center">
           {icon}
         </div>
       </div>

@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Shield, Clock, BarChart, Settings, AlertCircle, CheckCircle, FileText, ArrowUpRight, Table, Server, FileCheck } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -128,7 +129,7 @@ const Dashboard = () => {
 
   return (
     <div className={`page-transition ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-      <div className="relative py-12 bg-gradient-to-br from-purple-900/10 to-background">
+      <div className="relative py-12 bg-gradient-to-br from-indigo-900/10 to-background">
         <div className="absolute inset-0 bg-dark-pattern opacity-5"></div>
         <div className="section-container relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between mb-12">
@@ -143,7 +144,7 @@ const Dashboard = () => {
                 </p>
               )}
             </div>
-            <Button className="mt-4 md:mt-0 bg-purple-600 hover:bg-purple-700">
+            <Button className="mt-4 md:mt-0 bg-indigo-600 hover:bg-indigo-700">
               Mulai Scan Baru <ArrowUpRight className="ml-1 h-4 w-4" />
             </Button>
           </div>
@@ -151,7 +152,7 @@ const Dashboard = () => {
           {loading ? (
             <div className="grid place-items-center h-[60vh]">
               <div className="text-center">
-                <div className="h-16 w-16 mx-auto mb-4 rounded-full border-4 border-t-purple-600 border-r-purple-200 border-b-purple-200 border-l-purple-200 animate-spin"></div>
+                <div className="h-16 w-16 mx-auto mb-4 rounded-full border-4 border-t-indigo-600 border-r-indigo-200 border-b-indigo-200 border-l-indigo-200 animate-spin"></div>
                 <p className="text-lg font-medium">Memuat dashboard Anda...</p>
               </div>
             </div>
@@ -160,7 +161,7 @@ const Dashboard = () => {
               {/* Billing Section */}
               <div className="mb-12">
                 <h2 className="text-2xl font-bold mb-6 flex items-center">
-                  <Table className="h-5 w-5 mr-2 text-purple-600" />
+                  <Table className="h-5 w-5 mr-2 text-indigo-600" />
                   Layanan Aktif & Tagihan
                 </h2>
                 <Card className="w-full elegant-card">
@@ -186,7 +187,7 @@ const Dashboard = () => {
                     </Button>
                     <Button 
                       size="sm" 
-                      className="bg-purple-600 hover:bg-purple-700"
+                      className="bg-indigo-600 hover:bg-indigo-700"
                       onClick={handleManageServices}
                     >
                       <Server className="mr-2 h-4 w-4" /> Kelola Layanan
@@ -198,7 +199,7 @@ const Dashboard = () => {
               {/* Monitoring / Statistics Section */}
               <div>
                 <h2 className="text-2xl font-bold mb-6 flex items-center">
-                  <BarChart className="h-5 w-5 mr-2 text-purple-600" />
+                  <BarChart className="h-5 w-5 mr-2 text-indigo-600" />
                   Monitoring & Statistik
                 </h2>
                 
@@ -208,7 +209,7 @@ const Dashboard = () => {
                     title="Security Score" 
                     value={`${stats.securityScore}%`} 
                     description="Skor keamanan 14 website Anda" 
-                    icon={<Shield className="text-purple-600" />}
+                    icon={<Shield className="text-indigo-600" />}
                     trend="up"
                     trendValue="+12%"
                   />
@@ -216,7 +217,7 @@ const Dashboard = () => {
                     title="Threats Blocked" 
                     value={stats.threatsBlocked} 
                     description="Ancaman malware yang telah diblokir" 
-                    icon={<AlertCircle className="text-purple-600" />}
+                    icon={<AlertCircle className="text-indigo-600" />}
                     trend="up"
                     trendValue="+3"
                   />
@@ -224,7 +225,7 @@ const Dashboard = () => {
                     title="Issues Resolved" 
                     value={stats.issuesResolved} 
                     description="Masalah cPanel yang telah diperbaiki" 
-                    icon={<CheckCircle className="text-purple-600" />}
+                    icon={<CheckCircle className="text-indigo-600" />}
                     trend="up"
                     trendValue="+2"
                   />
@@ -232,7 +233,7 @@ const Dashboard = () => {
                     title="Days Protected" 
                     value={stats.daysProtected} 
                     description="Durasi perlindungan server VPS aktif" 
-                    icon={<Clock className="text-purple-600" />}
+                    icon={<Clock className="text-indigo-600" />}
                     trend="up"
                     trendValue="+15"
                   />
@@ -243,7 +244,7 @@ const Dashboard = () => {
                     <CardHeader>
                       <CardTitle className="flex justify-between items-center">
                         <span>Website Security Score</span>
-                        <Shield className="h-5 w-5 text-purple-600" />
+                        <Shield className="h-5 w-5 text-indigo-600" />
                       </CardTitle>
                       <CardDescription>
                         Penilaian keamanan 14 website Anda
@@ -296,7 +297,7 @@ const Dashboard = () => {
                     <CardHeader>
                       <CardTitle className="flex justify-between items-center">
                         <span>Security Issues</span>
-                        <AlertCircle className="h-5 w-5 text-purple-600" />
+                        <AlertCircle className="h-5 w-5 text-indigo-600" />
                       </CardTitle>
                       <CardDescription>
                         Masalah keamanan terdeteksi
@@ -341,7 +342,7 @@ const Dashboard = () => {
                     <CardHeader>
                       <CardTitle className="flex justify-between items-center">
                         <span>Recent Scans</span>
-                        <Clock className="h-5 w-5 text-purple-600" />
+                        <Clock className="h-5 w-5 text-indigo-600" />
                       </CardTitle>
                       <CardDescription>
                         Riwayat pemindaian website terbaru
@@ -372,7 +373,7 @@ const Dashboard = () => {
                   <CardHeader>
                     <CardTitle className="flex justify-between items-center">
                       <span>Security Analytics</span>
-                      <BarChart className="h-5 w-5 text-purple-600" />
+                      <BarChart className="h-5 w-5 text-indigo-600" />
                     </CardTitle>
                     <CardDescription>
                       Analisis aktivitas keamanan 30 hari terakhir
@@ -386,7 +387,7 @@ const Dashboard = () => {
                 </Card>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
-                  <Button className="h-auto py-6 bg-purple-600 hover:bg-purple-700">
+                  <Button className="h-auto py-6 bg-indigo-600 hover:bg-indigo-700">
                     <div className="flex flex-col items-center">
                       <Shield className="h-6 w-6 mb-2" />
                       <span className="text-base font-medium">Run Full Security Scan</span>
