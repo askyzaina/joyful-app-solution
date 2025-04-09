@@ -1,37 +1,39 @@
 
-import { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, LogIn, UserPlus, User, LogOut, Shield, Activity } from 'lucide-react';
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import { useAuth } from '@/context/AuthContext';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { ThemeToggle } from './theme-toggle';
 
-const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+const Navbar: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
-  const { user, profile, signOut } = useAuth();
+  const { user, signOut } = useAuth();
   
+  const isActive = (path: string) => location.pathname === path;
+  
+  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setScrolled(window.scrollY > 10);
     };
     
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   
+  // Close mobile menu when route changes
   useEffect(() => {
-    setMobileMenuOpen(false);
+    setIsOpen(false);
   }, [location.pathname]);
+  
+  const navbarClasses = cn(
+    'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+    scrolled ? 'bg-background/90 backdrop-blur-md border-b border-border shadow-sm py-3' : 'py-5'
+  );
   
   const navLinks = [
     { name: 'Beranda', path: '/' },
@@ -40,133 +42,73 @@ const Navbar = () => {
     { name: 'Kontak', path: '/contact' },
   ];
   
-  const isActive = (path: string) => {
-    return location.pathname === path;
-  };
-  
-  const handleLogout = async () => {
-    await signOut();
-    navigate('/');
-  };
-
-  const getInitials = (name: string) => {
-    if (!name) return 'U';
-    return name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
-  };
-
   return (
-    <nav 
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4",
-        isScrolled 
-          ? "bg-black/90 shadow-sm backdrop-blur-lg border-b border-indigo-500/10" 
-          : "bg-black/70 backdrop-blur-md"
-      )}
-    >
-      <div className="container flex items-center justify-between">
-        <Link to="/" className="flex items-center">
-          <Shield className="h-5 w-5 mr-2 text-indigo-500" />
-          <span className="text-xl font-bold bg-gradient-to-r from-indigo-500 to-indigo-700 bg-clip-text text-transparent">SecureCleanse</span>
+    <header className={navbarClasses}>
+      <nav className="container mx-auto px-4 flex justify-between items-center">
+        {/* Logo */}
+        <Link to="/" className="text-foreground font-bold text-xl">
+          <span className="bg-gradient-to-r from-indigo-500 to-indigo-700 bg-clip-text text-transparent">
+            MalwareCleaner
+          </span>
         </Link>
         
         {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-6 items-center">
+        <div className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
               className={cn(
-                "transition-colors duration-200 text-sm font-medium",
-                isActive(link.path) 
-                  ? "text-indigo-500 hover:text-indigo-400" 
-                  : "text-gray-300 hover:text-white"
+                "text-sm font-medium transition-colors hover:text-primary",
+                isActive(link.path) ? "text-primary" : "text-muted-foreground"
               )}
             >
               {link.name}
             </Link>
           ))}
           
+          {/* Theme Toggle */}
+          <div className="ml-2">
+            <ThemeToggle />
+          </div>
+          
           {user ? (
-            <div className="flex items-center gap-4">
-              <Button
-                variant="ghost"
-                className="text-sm font-medium text-gray-300 hover:text-white hover:bg-indigo-500/10"
-                onClick={() => navigate('/dashboard')}
-              >
-                Dashboard
-              </Button>
-              
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-                    <Avatar className="h-8 w-8">
-                      <AvatarFallback className="bg-indigo-600 text-white">
-                        {getInitials(profile?.full_name || user.email || '')}
-                      </AvatarFallback>
-                    </Avatar>
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="bg-black/90 border-indigo-500/30 text-gray-200">
-                  <DropdownMenuItem onClick={() => navigate('/dashboard')} className="hover:bg-indigo-500/10 hover:text-white focus:bg-indigo-500/10 focus:text-white">
-                    <User className="mr-2 h-4 w-4" />
-                    <span>Profil</span>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={handleLogout} className="hover:bg-indigo-500/10 hover:text-white focus:bg-indigo-500/10 focus:text-white">
-                    <LogOut className="mr-2 h-4 w-4" />
-                    <span>Logout</span>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+            <div className="flex items-center gap-3">
+              <Link to="/dashboard">
+                <Button variant="ghost" size="sm">Dashboard</Button>
+              </Link>
+              <Button variant="outline" size="sm" onClick={signOut}>Keluar</Button>
             </div>
           ) : (
-            <>
-              <Button
-                variant="ghost"
-                className="text-sm font-medium text-gray-300 hover:text-white hover:bg-indigo-500/10"
-                onClick={() => navigate('/login')}
-              >
-                <LogIn className="h-4 w-4 mr-2" />
-                Login
-              </Button>
-              <Button
-                variant="outline"
-                className="border-indigo-500 text-indigo-500 hover:bg-indigo-500/10 hover:text-white"
-                onClick={() => navigate('/signup')}
-              >
-                <UserPlus className="h-4 w-4 mr-2" />
-                Daftar
-              </Button>
-            </>
+            <div className="flex items-center gap-3">
+              <Link to="/login">
+                <Button variant="ghost" size="sm">Masuk</Button>
+              </Link>
+              <Link to="/signup">
+                <Button variant="default" size="sm">Daftar</Button>
+              </Link>
+            </div>
           )}
-          
-          <Button asChild className="bg-gradient-to-r from-indigo-500 to-indigo-700 hover:from-indigo-600 hover:to-indigo-800 text-white animate-pulse-soft">
-            <Link to="/contact">Konsultasi Gratis</Link>
-          </Button>
         </div>
         
         {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-gray-300 hover:text-white"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label={mobileMenuOpen ? "Close Menu" : "Open Menu"}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-      
-      {/* Mobile Navigation */}
-      {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-16 z-50 bg-black/95 animate-fade-in">
-          <div className="flex flex-col space-y-6 p-6 pt-10">
+        <div className="flex items-center gap-4 md:hidden">
+          <ThemeToggle />
+          <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </Button>
+        </div>
+        
+        {/* Mobile Menu */}
+        {isOpen && (
+          <div className="md:hidden absolute top-full left-0 w-full bg-background/95 backdrop-blur-md border-b border-border shadow-md py-4 px-4 flex flex-col gap-3">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 className={cn(
-                  "text-lg font-medium transition-colors duration-200 py-2",
-                  isActive(link.path) 
-                    ? "text-indigo-500" 
-                    : "text-gray-300 hover:text-white"
+                  "py-2 px-4 rounded-md text-sm",
+                  isActive(link.path) ? "bg-primary/10 text-primary" : "text-muted-foreground"
                 )}
               >
                 {link.name}
@@ -174,47 +116,26 @@ const Navbar = () => {
             ))}
             
             {user ? (
-              <>
-                <Link
-                  to="/dashboard"
-                  className="text-lg font-medium transition-colors duration-200 py-2 text-gray-300 hover:text-white"
-                >
-                  Dashboard
+              <div className="flex flex-col gap-2 mt-2 pt-2 border-t border-border">
+                <Link to="/dashboard" className="w-full">
+                  <Button variant="ghost" size="sm" className="w-full justify-start">Dashboard</Button>
                 </Link>
-                <Button 
-                  onClick={handleLogout}
-                  className="w-full bg-gradient-to-r from-indigo-500 to-indigo-700 hover:from-indigo-600 hover:to-indigo-800 text-white"
-                >
-                  <LogOut className="mr-2 h-4 w-4" />
-                  Logout
-                </Button>
-              </>
+                <Button variant="outline" size="sm" onClick={signOut} className="w-full justify-start">Keluar</Button>
+              </div>
             ) : (
-              <>
-                <Link
-                  to="/login"
-                  className="flex items-center text-lg font-medium transition-colors duration-200 py-2 text-gray-300 hover:text-white"
-                >
-                  <LogIn className="h-5 w-5 mr-2" />
-                  Login
+              <div className="flex flex-col gap-2 mt-2 pt-2 border-t border-border">
+                <Link to="/login" className="w-full">
+                  <Button variant="ghost" size="sm" className="w-full justify-start">Masuk</Button>
                 </Link>
-                <Link
-                  to="/signup"
-                  className="flex items-center text-lg font-medium transition-colors duration-200 py-2 text-gray-300 hover:text-white"
-                >
-                  <UserPlus className="h-5 w-5 mr-2" />
-                  Daftar
+                <Link to="/signup" className="w-full">
+                  <Button variant="default" size="sm" className="w-full justify-start">Daftar</Button>
                 </Link>
-              </>
+              </div>
             )}
-            
-            <Button asChild className="w-full bg-gradient-to-r from-indigo-500 to-indigo-700 hover:from-indigo-600 hover:to-indigo-800 text-white mt-4">
-              <Link to="/contact">Konsultasi Gratis</Link>
-            </Button>
           </div>
-        </div>
-      )}
-    </nav>
+        )}
+      </nav>
+    </header>
   );
 };
 

@@ -113,7 +113,7 @@ function AppRoutes() {
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="malware-cleaner-theme">
+    <ThemeProvider defaultTheme="system" storageKey="malware-cleaner-theme">
       <AuthProvider>
         <PurchaseProvider>
           <QueryClientProvider client={queryClient}>
