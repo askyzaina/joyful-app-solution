@@ -57,7 +57,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         <p className="text-muted-foreground text-sm mb-6">{description}</p>
         
         <Button 
-          className="w-full mb-6" 
+          className={cn("w-full mb-6", 
+            popular ? "bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-700 hover:to-indigo-600 shadow-md" : 
+            "border-indigo-500/50 bg-transparent hover:bg-indigo-500/10 text-foreground"
+          )}
           variant={popular ? "default" : "outline"}
           onClick={() => onSelect && onSelect(id)}
         >

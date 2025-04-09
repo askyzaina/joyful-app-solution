@@ -150,7 +150,7 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="cyber-card animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-              <div className="h-12 w-12 rounded-full bg-indigo-500/10 flex items-center justify-center mb-6">
+              <div className="h-12 w-12 rounded-full bg-indigo-500/10 flex items-center justify-center mb-6 mx-auto">
                 <Database className="h-6 w-6 text-indigo-500" />
               </div>
               <h3 className="text-xl font-bold mb-3 text-white">Kehilangan Data</h3>
@@ -160,7 +160,7 @@ const Index = () => {
             </div>
             
             <div className="cyber-card animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-              <div className="h-12 w-12 rounded-full bg-indigo-500/10 flex items-center justify-center mb-6">
+              <div className="h-12 w-12 rounded-full bg-indigo-500/10 flex items-center justify-center mb-6 mx-auto">
                 <UserCheck className="h-6 w-6 text-indigo-500" />
               </div>
               <h3 className="text-xl font-bold mb-3 text-white">Kerusakan Reputasi</h3>
@@ -170,7 +170,7 @@ const Index = () => {
             </div>
             
             <div className="cyber-card animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-              <div className="h-12 w-12 rounded-full bg-indigo-500/10 flex items-center justify-center mb-6">
+              <div className="h-12 w-12 rounded-full bg-indigo-500/10 flex items-center justify-center mb-6 mx-auto">
                 <ServerCrash className="h-6 w-6 text-indigo-500" />
               </div>
               <h3 className="text-xl font-bold mb-3 text-white">Penurunan Performa</h3>
@@ -182,8 +182,8 @@ const Index = () => {
           
           {/* Security Alert Box */}
           <div className="security-alert mt-16 max-w-3xl mx-auto">
-            <div className="flex items-start gap-4">
-              <AlertTriangle className="h-6 w-6 text-indigo-500 mt-1 flex-shrink-0" />
+            <div className="flex items-center gap-4">
+              <AlertTriangle className="h-6 w-6 text-indigo-500 flex-shrink-0" />
               <div>
                 <h4 className="font-bold text-white mb-1">Fakta Keamanan</h4>
                 <p className="text-sm">37% dari semua website yang terinfeksi malware tidak menyadari adanya infeksi sampai terlambat. Pemeriksaan keamanan secara berkala sangat penting untuk mencegah serangan yang lebih parah.</p>
@@ -193,7 +193,7 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Services Section - Updated with better background */}
+      {/* Services Section */}
       <section className="py-16 md:py-24 wavy-background relative overflow-hidden" id="layanan">
         {/* Decorative elements */}
         <div className="absolute left-0 top-0 w-1/2 h-full bg-gradient-to-br from-indigo-900/5 to-transparent"></div>
@@ -352,7 +352,7 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Testimonials Section - Updated with better background and card styles */}
+      {/* Testimonials Section */}
       <section className="py-16 md:py-24 testimonial-background relative overflow-hidden">
         <div className="section-container relative z-10">
           <div className="text-center mb-16">
@@ -411,7 +411,7 @@ const Index = () => {
         </div>
       </section>
       
-      {/* CTA Section - Cybersecurity themed */}
+      {/* CTA Section */}
       <section className="py-16 md:py-24 relative overflow-hidden">
         {/* Dark background with improved gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0a192f] to-black z-0"></div>
