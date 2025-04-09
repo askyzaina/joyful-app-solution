@@ -45,14 +45,14 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         <Quote className="h-12 w-12" />
       </div>
       
-      {/* Star rating - updated with gold color */}
+      {/* Star rating */}
       <div className="flex items-center mb-4 relative z-10">
         {Array.from({ length: 5 }).map((_, i) => (
           <Star
             key={i}
             className={cn(
               "h-5 w-5 mr-1 transition-all duration-300 hover:scale-110",
-              i < rating ? "text-amber-400 fill-amber-400" : "text-gray-600"
+              i < rating ? "text-indigo-500 fill-indigo-500" : "text-gray-600"
             )}
           />
         ))}

@@ -38,13 +38,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       whileHover={{ y: -5 }}
       className={cn(
         "relative rounded-xl overflow-hidden border transition-all",
-        popular ? "border-amber-400 shadow-lg" : "border-border shadow",
+        popular ? "border-primary shadow-lg" : "border-border shadow",
         className
       )}
       style={style}
     >
       {popular && (
-        <div className="absolute top-0 inset-x-0 bg-gradient-to-r from-amber-400 to-amber-600 text-white text-center py-1 text-xs font-medium">
+        <div className="absolute top-0 inset-x-0 bg-primary text-white text-center py-1 text-xs font-medium">
           PALING POPULER
         </div>
       )}
@@ -58,7 +58,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         
         <Button 
           className={cn("w-full mb-6", 
-            popular ? "bg-gradient-to-r from-amber-500 to-amber-300 hover:from-amber-600 hover:to-amber-400 shadow-md text-gray-900" : 
+            popular ? "bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-700 hover:to-indigo-600 shadow-md" : 
             "border-indigo-500/50 bg-transparent hover:bg-indigo-500/10 text-foreground"
           )}
           variant={popular ? "default" : "outline"}
@@ -72,10 +72,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             <div key={index} className="flex items-start">
               <div className={cn(
                 "h-5 w-5 rounded-full flex items-center justify-center mr-3 mt-0.5",
-                feature.included ? (popular ? "bg-amber-500/10" : "bg-primary/10") : "bg-gray-100 dark:bg-gray-800"
+                feature.included ? "bg-primary/10" : "bg-gray-100 dark:bg-gray-800"
               )}>
                 {feature.included ? (
-                  <Check className={cn("h-3 w-3", popular ? "text-amber-500" : "text-primary")} />
+                  <Check className="h-3 w-3 text-primary" />
                 ) : (
                   <X className="h-3 w-3 text-muted-foreground" />
                 )}
