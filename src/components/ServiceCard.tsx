@@ -69,7 +69,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             <div key={index} className="flex items-start">
               <div className={cn(
                 "h-5 w-5 rounded-full flex items-center justify-center mr-3 mt-0.5",
-                feature.included ? "bg-primary/10" : "bg-gray-100 dark:bg-gray-800"
+                feature.included ? "bg-primary/10" : "bg-gray-100"
               )}>
                 {feature.included ? (
                   <Check className="h-3 w-3 text-primary" />

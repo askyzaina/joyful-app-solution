@@ -6,7 +6,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect } from "react";
-import { ThemeProvider } from "@/components/theme-provider";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
 import Process from "./pages/Process";
@@ -113,19 +112,17 @@ function AppRoutes() {
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="malware-cleaner-theme">
-      <AuthProvider>
-        <PurchaseProvider>
-          <QueryClientProvider client={queryClient}>
-            <TooltipProvider>
-              <Toaster />
-              <Sonner />
-              <AppRoutes />
-            </TooltipProvider>
-          </QueryClientProvider>
-        </PurchaseProvider>
-      </AuthProvider>
-    </ThemeProvider>
+    <AuthProvider>
+      <PurchaseProvider>
+        <QueryClientProvider client={queryClient}>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <AppRoutes />
+          </TooltipProvider>
+        </QueryClientProvider>
+      </PurchaseProvider>
+    </AuthProvider>
   );
 }
 
