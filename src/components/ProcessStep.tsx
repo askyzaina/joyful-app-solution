@@ -22,7 +22,7 @@ const ProcessStep: React.FC<ProcessStepProps> = ({
   return (
     <div 
       className={cn(
-        "flex flex-col items-center text-center relative animate-fade-in-up",
+        "flex flex-col items-center text-center relative animate-fade-in-up pt-8",
         className
       )}
       style={style}
