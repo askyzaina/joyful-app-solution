@@ -52,7 +52,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
             key={i}
             className={cn(
               "h-5 w-5 mr-1 transition-all duration-300 hover:scale-110",
-              i < rating ? "text-indigo-500 fill-indigo-500" : "text-gray-600"
+              i < rating ? "text-amber-500 fill-amber-500" : "text-gray-600"
             )}
           />
         ))}
@@ -61,7 +61,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       <p className="mb-6 text-gray-300 relative z-10 group-hover:text-gray-200 transition-colors duration-300 flex-grow">{content}</p>
       
       <div className="flex items-center relative z-10 mt-auto pt-4 border-t border-indigo-500/10">
-        <div className="w-10 h-10 bg-gradient-to-br from-indigo-500/30 to-indigo-700/50 rounded-full flex items-center justify-center text-white font-bold mr-4 shadow-md">
+        <div className="w-10 h-10 bg-gradient-to-br from-amber-500/30 to-amber-700/50 rounded-full flex items-center justify-center text-white font-bold mr-4 shadow-md">
           {name.charAt(0)}
         </div>
         <div>
