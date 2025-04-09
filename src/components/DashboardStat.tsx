@@ -23,7 +23,7 @@ const DashboardStat: React.FC<DashboardStatProps> = ({
 }) => {
   return (
     <div className={cn(
-      "p-7 md:p-8 rounded-xl border border-border bg-white shadow-sm hover:shadow-md transition-shadow elegant-card", 
+      "p-7 md:p-8 rounded-xl border border-border bg-card shadow-sm hover:shadow-md transition-shadow elegant-card", 
       className
     )}>
       <div className="flex items-start justify-between">
@@ -32,7 +32,7 @@ const DashboardStat: React.FC<DashboardStatProps> = ({
           <h3 className="text-2xl font-bold mb-2">{value}</h3>
           <p className="text-sm text-muted-foreground">{description}</p>
         </div>
-        <div className="h-12 w-12 rounded-full bg-indigo-100 flex items-center justify-center ml-4">
+        <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center ml-4">
           {icon}
         </div>
       </div>
