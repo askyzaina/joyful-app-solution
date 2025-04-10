@@ -44,8 +44,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       style={style}
     >
       {popular && (
-        <div className="absolute top-0 right-0 overflow-hidden">
-          <div className="bg-gradient-to-r from-amber-400 to-amber-600 text-white text-center py-1 px-8 font-medium transform rotate-45 translate-x-2 translate-y-[-10px] shadow-md w-40">
+        <div className="absolute top-0 right-0 overflow-hidden w-40 h-40">
+          <div className="bg-gradient-to-r from-amber-400 to-amber-600 text-white text-center py-1 px-10 font-medium transform rotate-45 translate-x-8 translate-y-[-12px] shadow-md">
             POPULER
           </div>
         </div>
@@ -60,10 +60,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         
         <Button 
           className={cn("w-full mb-6", 
-            popular ? "bg-gradient-to-r from-amber-500 to-amber-300 hover:from-amber-600 hover:to-amber-400 shadow-md text-black" : 
+            popular ? "border-indigo-500/50 bg-transparent hover:bg-indigo-500/10 text-foreground" : 
             "border-indigo-500/50 bg-transparent hover:bg-indigo-500/10 text-foreground"
           )}
-          variant={popular ? "default" : "outline"}
+          variant={popular ? "outline" : "outline"}
           onClick={() => onSelect && onSelect(id)}
         >
           Pilih Paket
