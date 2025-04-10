@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { Check, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 
 export interface ServiceFeature {
   text: string;
@@ -45,15 +44,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       style={style}
     >
       {popular && (
-        <>
-          {/* Top right corner triangle */}
-          <div className="absolute top-0 right-0 w-0 h-0 border-0 border-t-[70px] border-r-[70px] border-t-amber-500 border-r-amber-500 z-10"></div>
-          
-          {/* Text rotated in the triangle */}
-          <div className="absolute top-[12px] right-[3px] transform rotate-45 z-20">
-            <Badge variant="popular" className="font-bold text-xs tracking-wider">POPULER</Badge>
+        <div className="absolute top-0 right-0 overflow-hidden">
+          <div className="bg-gradient-to-r from-amber-400 to-amber-600 text-white text-center py-1 px-8 font-medium transform rotate-45 translate-x-2 translate-y-[-10px] shadow-md w-40">
+            POPULER
           </div>
-        </>
+        </div>
       )}
       
       <div className={cn("p-6", popular && "")}>
@@ -65,10 +60,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         
         <Button 
           className={cn("w-full mb-6", 
-            popular ? "border-indigo-500/50 bg-transparent hover:bg-indigo-500/10 text-foreground" : 
+            popular ? "bg-gradient-to-r from-amber-500 to-amber-300 hover:from-amber-600 hover:to-amber-400 shadow-md text-black" : 
             "border-indigo-500/50 bg-transparent hover:bg-indigo-500/10 text-foreground"
           )}
-          variant={popular ? "outline" : "outline"}
+          variant={popular ? "default" : "outline"}
           onClick={() => onSelect && onSelect(id)}
         >
           Pilih Paket
