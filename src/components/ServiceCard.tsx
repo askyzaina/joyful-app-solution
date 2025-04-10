@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Check, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 
 export interface ServiceFeature {
   text: string;
@@ -44,11 +45,15 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       style={style}
     >
       {popular && (
-        <div className="absolute top-0 right-0">
-          <div className="bg-amber-500 text-white font-bold p-3 flex items-center justify-center transform rotate-45 origin-top-right w-[150px] h-[40px] translate-x-[25px] -translate-y-[10px] shadow-md">
-            POPULER
+        <>
+          {/* Top right corner triangle */}
+          <div className="absolute top-0 right-0 w-0 h-0 border-0 border-t-[70px] border-r-[70px] border-t-amber-500 border-r-amber-500 z-10"></div>
+          
+          {/* Text rotated in the triangle */}
+          <div className="absolute top-[12px] right-[3px] transform rotate-45 z-20">
+            <Badge variant="popular" className="font-bold text-xs tracking-wider">POPULER</Badge>
           </div>
-        </div>
+        </>
       )}
       
       <div className={cn("p-6", popular && "")}>
