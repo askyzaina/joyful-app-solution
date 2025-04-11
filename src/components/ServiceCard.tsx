@@ -52,8 +52,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                          border-t-[80px] border-t-amber-500 
                          border-l-[80px] border-l-transparent">
           </div>
-          <div className="absolute top-[22px] right-[-20px] transform rotate-45">
-            <span className="text-white text-sm font-bold px-6 py-1">POPULER</span>
+          <div className="absolute top-[22px] right-[-10px] transform rotate-45">
+            <span className="text-white text-sm font-bold">POPULER</span>
           </div>
         </div>
       )}
