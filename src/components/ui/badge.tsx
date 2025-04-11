@@ -23,7 +23,7 @@ const badgeVariants = cva(
         info:
           "border-transparent bg-indigo-500 text-white dark:bg-indigo-600 dark:text-indigo-50 hover:bg-indigo-600 dark:hover:bg-indigo-700",
         popular:
-          "border-transparent bg-amber-500 text-white dark:bg-amber-600 dark:text-amber-50 hover:bg-amber-600 dark:hover:bg-amber-700",
+          "border-transparent bg-amber-500 text-white dark:bg-amber-500 dark:text-white font-bold",
       },
     },
     defaultVariants: {

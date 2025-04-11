@@ -47,15 +47,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       style={style}
     >
       {popular && (
-        <div className="absolute top-0 right-0 w-[100px] h-[100px] overflow-hidden">
+        <div className="absolute top-0 right-0 overflow-hidden">
           <div className="absolute top-0 right-0 w-0 h-0 
-                         border-t-[100px] border-t-amber-500 
-                         border-l-[100px] border-l-transparent
-                         shadow-md">
+                         border-t-[80px] border-t-amber-500 
+                         border-l-[80px] border-l-transparent">
           </div>
-          <span className="absolute top-[25px] right-[-15px] text-white text-xs font-semibold transform rotate-45">
-            POPULER
-          </span>
+          <div className="absolute top-[22px] right-[-20px] transform rotate-45">
+            <span className="text-white text-sm font-bold px-6 py-1">POPULER</span>
+          </div>
         </div>
       )}
       
