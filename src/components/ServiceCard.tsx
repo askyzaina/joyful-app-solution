@@ -41,7 +41,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         "relative rounded-xl overflow-hidden border transition-all",
         popular 
           ? "border-amber-500/70 dark:border-amber-500/50 shadow-lg" 
-          : "border-border shadow",
+          : "border-slate-200 dark:border-border shadow",
         className
       )}
       style={style}
@@ -62,7 +62,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       
       <div className={cn(
         "p-6", 
-        popular && "bg-amber-50/30 dark:bg-amber-950/10"
+        popular 
+          ? "bg-gradient-to-br from-amber-50 to-amber-100/60 dark:bg-amber-950/10" 
+          : "bg-white dark:bg-transparent"
       )}>
         <h3 className="text-xl font-bold">{title}</h3>
         <div className="mt-2 mb-3">
@@ -74,10 +76,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           className={cn(
             "w-full mb-6", 
             popular 
-              ? "border-amber-500/50 bg-amber-500/10 hover:bg-amber-500/20 text-amber-700 dark:text-amber-400" 
-              : "border-indigo-500/50 bg-transparent hover:bg-indigo-500/10 text-foreground"
+              ? "bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white border-0" 
+              : "border-slate-300 bg-white hover:bg-slate-50 text-slate-800 dark:border-indigo-500/50 dark:bg-transparent dark:hover:bg-indigo-500/10 dark:text-foreground"
           )}
-          variant={popular ? "outline" : "outline"}
+          variant={popular ? "default" : "outline"}
           onClick={() => onSelect && onSelect(id)}
         >
           Pilih Paket
@@ -90,26 +92,26 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                 "h-5 w-5 rounded-full flex items-center justify-center mr-3 mt-0.5",
                 feature.included 
                   ? (popular 
-                      ? "bg-amber-500/10 dark:bg-amber-500/20" 
-                      : "bg-primary/10")
-                  : "bg-gray-100 dark:bg-gray-800"
+                      ? "bg-amber-100 text-amber-600 dark:bg-amber-500/20" 
+                      : "bg-slate-100 text-slate-700 dark:bg-primary/10")
+                  : "bg-slate-100 dark:bg-gray-800"
               )}>
                 {feature.included ? (
                   <Check className={cn(
                     "h-3 w-3", 
                     popular 
                       ? "text-amber-600 dark:text-amber-400" 
-                      : "text-primary"
+                      : "text-slate-700 dark:text-primary"
                   )} />
                 ) : (
-                  <X className="h-3 w-3 text-muted-foreground" />
+                  <X className="h-3 w-3 text-slate-400 dark:text-muted-foreground" />
                 )}
               </div>
               <span className={cn(
                 "text-sm",
                 feature.included 
-                  ? "text-foreground" 
-                  : "text-muted-foreground line-through"
+                  ? "text-slate-800 dark:text-foreground" 
+                  : "text-slate-500 line-through dark:text-muted-foreground"
               )}>
                 {feature.text}
               </span>
